@@ -1,10 +1,14 @@
 /**
- * Grants the LGCY Core bot role the ability to POST in the channels where it is
- * currently blocked (View / Send / Embed / Attach). Adds/merges ONLY a single
- * overwrite for the bot's own role — every other overwrite (@everyone, Muted,
- * staff roles) is left exactly as-is. Idempotent: skips channels the bot can
- * already fully post in. NEVER touches any channel whose name or category
- * contains "private" (hard rule).
+ * Ensures the LGCY Core bot role has an explicit POST overwrite (View / Send /
+ * Embed / Attach) on every non-private text/announcement channel. Adds/merges
+ * ONLY the bot's own overwrite — every other overwrite (@everyone, Muted, staff
+ * roles) is left exactly as-is. NEVER touches a channel whose name or category
+ * contains "private".
+ *
+ * Checks the actual OVERWRITE bits (not effective permissions), so it works
+ * correctly even while the bot temporarily has Administrator — that's how we
+ * bootstrap access to private staff/log channels the bot otherwise can't see.
+ * Idempotent: skips channels whose bot overwrite already allows all four.
  *
  * Gated by the mutation lock — set LGCY_ALLOW_MUTATIONS=1 for a single run.
  *
@@ -62,34 +66,32 @@ client.once(Events.ClientReady, async () => {
   try {
     const guild = await client.guilds.fetch(guildId);
     await guild.channels.fetch();
-    const me = await guild.members.fetchMe();
     const clean = (s: string) => s.replace(/[^\x20-\x7E]/g, '').replace(/\s+/g, ' ').trim() || s;
-    const isPrivate = (ch: import('discord.js').GuildChannel) => {
-      const parent = ch.parent?.name ?? '';
-      return /private/i.test(ch.name) || /private/i.test(parent);
+    const isPrivate = (ch: import('discord.js').GuildChannel) =>
+      /private/i.test(ch.name) || /private/i.test(ch.parent?.name ?? '');
+    const owAllowsAll = (ch: import('discord.js').GuildChannel) => {
+      const ow = ch.permissionOverwrites.cache.get(LGCY_ROLE_ID);
+      return !!ow && POST.every(([, f]) => ow.allow.has(f));
     };
 
     for (const ch of guild.channels.cache.values()) {
       if (!ch || !TEXTLIKE.has(ch.type)) continue;
       const gch = ch as import('discord.js').GuildChannel;
-      if (isPrivate(gch)) { results.push({ name: clean(ch.name), status: 'skipped', detail: 'PRIVATE — untouched' }); continue; }
-
-      const before = ch.permissionsFor(me);
-      const missing = POST.filter(([, f]) => !before?.has(f)).map(([n]) => n);
-      if (!missing.length) { results.push({ name: clean(ch.name), status: 'already-ok' }); continue; }
+      const name = clean(ch.name);
+      if (isPrivate(gch)) { results.push({ name, status: 'skipped', detail: 'PRIVATE — untouched' }); continue; }
+      if (owAllowsAll(gch)) { results.push({ name, status: 'already-ok' }); continue; }
 
       try {
         await withRetry(() => gch.permissionOverwrites.edit(LGCY_ROLE_ID, {
           ViewChannel: true, SendMessages: true, EmbedLinks: true, AttachFiles: true,
         }), `edit ${ch.id}`);
         const fresh = await withRetry(() => guild.channels.fetch(ch.id, { force: true }), `verify ${ch.id}`);
-        const after = fresh && 'permissionsFor' in fresh ? fresh.permissionsFor(me) : null;
-        const stillMissing = POST.filter(([, f]) => !after?.has(f)).map(([n]) => n);
-        if (stillMissing.length) { results.push({ name: clean(ch.name), status: 'FAILED', detail: 'still missing ' + stillMissing.join(', ') }); console.error(`  ❌ ${clean(ch.name)} still missing ${stillMissing.join(', ')}`); }
-        else { results.push({ name: clean(ch.name), status: 'granted', detail: '+' + missing.join(', ') }); console.log(`  ✓ ${clean(ch.name).padEnd(30)} granted (was missing ${missing.join(', ')})`); }
+        const ok = fresh && 'permissionOverwrites' in fresh && owAllowsAll(fresh as import('discord.js').GuildChannel);
+        if (ok) { results.push({ name, status: 'granted' }); console.log(`  ✓ ${name}`); }
+        else { results.push({ name, status: 'FAILED', detail: 'overwrite not confirmed' }); console.error(`  ❌ ${name}: overwrite not confirmed`); }
       } catch (err) {
-        results.push({ name: clean(ch.name), status: 'FAILED', detail: (err as Error).message });
-        console.error(`  ❌ ${clean(ch.name)}: ${(err as Error).message}`);
+        results.push({ name, status: 'FAILED', detail: (err as Error).message });
+        console.error(`  ❌ ${name}: ${(err as Error).message}`);
       }
     }
 
@@ -98,6 +100,7 @@ client.once(Events.ClientReady, async () => {
     const sk = results.filter((r) => r.status === 'skipped').length;
     const f = results.filter((r) => r.status === 'FAILED').length;
     console.log(`\n──── RESULT ────\n  granted: ${g} · already-ok: ${ok} · skipped(private): ${sk} · failed: ${f}\n`);
+    results.filter((r) => r.status === 'FAILED').forEach((r) => console.log(`  ❌ ${r.name} — ${r.detail}`));
     results.filter((r) => r.status === 'skipped').forEach((r) => console.log(`  ⏭ ${r.name} — ${r.detail}`));
   } catch (err) {
     console.error('grant failed:', (err as Error).message);

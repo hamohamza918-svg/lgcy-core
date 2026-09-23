@@ -16,6 +16,7 @@ import { initDatabase, closeDatabase } from './database/index.js';
 import { LgcyClient } from './services/client.js';
 import { loadModules } from './services/moduleLoader.js';
 import { startKeepAlive } from './services/keepalive.js';
+import { maybeGrantChannels } from './services/grantChannels.js';
 import { MODULES } from './modules/index.js';
 import { readyEvent } from './events/ready.js';
 import { interactionCreateEvent } from './events/interactionCreate.js';
@@ -69,6 +70,16 @@ async function main(): Promise<void> {
 
   // 4. Core gateway events (feature events are wired by the module loader).
   client.once(readyEvent.name, (...args) => readyEvent.execute(client, ...args));
+  // One-time channel-access bootstrap (only acts when GRANT_CHANNELS=1).
+  client.once(readyEvent.name, async () => {
+    try {
+      const gid = credentials.getGuildId();
+      const guild = gid ? await client.guilds.fetch(gid) : null;
+      if (guild) await maybeGrantChannels(guild);
+    } catch (err) {
+      logger.error({ err }, 'channel grant bootstrap failed');
+    }
+  });
   client.on(interactionCreateEvent.name, (...args) =>
     interactionCreateEvent.execute(client, ...args),
   );
