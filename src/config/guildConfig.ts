@@ -51,6 +51,33 @@ const logChannelsSchema = z
 export type LogChannels = z.infer<typeof logChannelsSchema>;
 
 /**
+ * Voice-logging options. Join/leave/move/moderator events go to the main voice
+ * log (logChannels.voice); noisy self-state toggles (mute/deafen/camera/stream)
+ * go to an optional separate debug channel and are OFF by default so the main
+ * log stays scannable. Defaults match the requested LGCY defaults.
+ */
+const voiceLoggingSchema = z
+  .object({
+    joins: z.boolean().default(true),
+    leaves: z.boolean().default(true),
+    moves: z.boolean().default(true),
+    sessionDuration: z.boolean().default(true),
+    memberCounts: z.boolean().default(true),
+    selfMuteDeafen: z.boolean().default(false),
+    camera: z.boolean().default(false),
+    screenShare: z.boolean().default(false),
+    moderatorActions: z.boolean().default(true),
+    includeIds: z.boolean().default(false),
+    detailedDebug: z.boolean().default(false),
+    /** Optional separate channel for detailed voice-state logs. Falls back to
+     * the main voice log channel when unset. */
+    debugChannelId: z.string().optional(),
+  })
+  .default({});
+
+export type VoiceLoggingConfig = z.infer<typeof voiceLoggingSchema>;
+
+/**
  * A ticket category shown in the panel's select menu. Fully configurable — the
  * channelPrefix drives channel naming (e.g. prefix "report" → `report-hamza`).
  */
@@ -89,6 +116,7 @@ export const guildConfigSchema = z.object({
   rulesChannelId: z.string().optional(),
   rolesChannelId: z.string().optional(),
   logChannels: logChannelsSchema,
+  voiceLogging: voiceLoggingSchema,
 
   // Tickets
   ticketPanelChannelId: z.string().optional(),

@@ -17,20 +17,31 @@ export async function sendLog(
   embed: EmbedBuilder,
 ): Promise<void> {
   const cfg = getGuildConfig(guild.id);
-  const channelId = cfg.logChannels[category];
-  if (!channelId) return;
+  await sendLogToChannel(guild, cfg.logChannels[category], embed);
+}
 
+/**
+ * Sends a log embed to an explicit channel id (used when a feature routes to its
+ * own destination, e.g. the detailed voice-state debug channel). No-ops when the
+ * channel id is unset/missing so callers never need to null-check.
+ */
+export async function sendLogToChannel(
+  guild: Guild,
+  channelId: string | undefined | null,
+  embed: EmbedBuilder,
+): Promise<void> {
+  if (!channelId) return;
   try {
     const channel =
       guild.channels.cache.get(channelId) ??
       (await guild.channels.fetch(channelId).catch(() => null));
     if (!channel || channel.type !== ChannelType.GuildText) {
-      log.warn({ guildId: guild.id, category, channelId }, 'log channel missing or not text');
+      log.warn({ guildId: guild.id, channelId }, 'log channel missing or not text');
       return;
     }
     // Respect rate limits: discord.js queues sends; we just fire-and-log errors.
     await channel.send({ embeds: [embed] });
   } catch (err) {
-    log.error({ err, guildId: guild.id, category }, 'failed to send log');
+    log.error({ err, guildId: guild.id, channelId }, 'failed to send log');
   }
 }

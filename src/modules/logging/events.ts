@@ -7,12 +7,12 @@ import {
   type PartialGuildMember,
   type Message,
   type PartialMessage,
-  type VoiceState,
   type GuildBan,
 } from 'discord.js';
 import type { EventHandler } from '../../types/index.js';
 import { sendLog } from '../../services/logService.js';
 import { BRAND } from '../../config/constants.js';
+import { voiceStateLog } from './voiceLog.js';
 
 const MODULE = 'logging';
 
@@ -163,36 +163,6 @@ const unbanLog: EventHandler<Events.GuildBanRemove> = {
   },
 };
 
-const voiceLog: EventHandler<Events.VoiceStateUpdate> = {
-  name: Events.VoiceStateUpdate,
-  module: MODULE,
-  async execute(_c, oldState: VoiceState, newState: VoiceState) {
-    const guild = newState.guild;
-    const user = newState.member?.user ?? oldState.member?.user;
-    if (!user) return;
-    let description: string | null = null;
-    let color: number = BRAND.colorInfo;
-
-    if (!oldState.channelId && newState.channelId) {
-      description = `➡️ Joined voice <#${newState.channelId}>`;
-      color = BRAND.colorSuccess;
-    } else if (oldState.channelId && !newState.channelId) {
-      description = `⬅️ Left voice <#${oldState.channelId}>`;
-      color = BRAND.colorNeutral;
-    } else if (oldState.channelId !== newState.channelId) {
-      description = `🔀 Moved <#${oldState.channelId}> → <#${newState.channelId}>`;
-    }
-    if (!description) return;
-
-    const embed = new EmbedBuilder()
-      .setColor(color)
-      .setAuthor({ name: user.tag, iconURL: user.displayAvatarURL() })
-      .setDescription(description)
-      .setTimestamp();
-    await sendLog(guild, 'voice', embed);
-  },
-};
-
 const channelCreateLog: EventHandler<Events.ChannelCreate> = {
   name: Events.ChannelCreate,
   module: MODULE,
@@ -228,7 +198,7 @@ export const loggingEvents: EventHandler[] = [
   memberUpdateLog,
   banLog,
   unbanLog,
-  voiceLog,
+  voiceStateLog,
   channelCreateLog,
   channelDeleteLog,
 ] as EventHandler[];

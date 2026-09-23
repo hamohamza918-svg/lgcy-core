@@ -32,6 +32,8 @@
     "smoke": "tsx scripts/smoke.ts",
     "test": "tsx --test scripts/*.test.ts",
     "test:tickets": "tsx --test scripts/tickets.test.ts",
+    "test:voice": "tsx --test scripts/voice.test.ts",
+    "preview:voice": "tsx scripts/preview-voice.ts",
     "db:reset": "tsx scripts/db-reset.ts",
     "typecheck": "tsc --noEmit"
   },
