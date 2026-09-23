@@ -20,10 +20,11 @@ const embeds = [
       username: 'h_a_m_z_a.07', channelName: 'LGCY 3', channelId: '1534000000000000003', userId: '350000000000000007',
       countBefore: 2, countAfter: 3, selfMute: false, selfDeaf: false, timestampSec: now, includeIds: true, showCounts: true,
     }).toJSON() },
-  { label: 'MOVE', json: renderMoveEmbed({
+  { label: 'MOVE (self)', json: renderMoveEmbed({
       username: 'h_a_m_z_a.07', fromName: 'LGCY 3', fromId: '1534000000000000003', toName: 'LGCY 2', toId: '1534000000000000002',
       userId: '350000000000000007', timeInPreviousMs: 74_000, fromBefore: 3, fromAfter: 2, toBefore: 1, toAfter: 2,
       joinedAtSec: now - 74, moveNumber: 2, timestampSec: now, includeIds: true, showCounts: true, showDuration: true,
+      moverNote: '**h_a_m_z_a.07** moved themselves',
     }).toJSON() },
   { label: 'LEAVE (session summary)', json: renderSessionSummaryEmbed({
       username: 'h_a_m_z_a.07', channelId: '1534000000000000002', userId: '350000000000000007',

@@ -18,6 +18,7 @@ import {
   classifyVoiceEvent,
   formatDuration,
   attributeVoiceModerator,
+  classifyModAttribution,
   renderJoinEmbed,
   renderMoveEmbed,
   renderSessionSummaryEmbed,
@@ -190,6 +191,33 @@ test('mod embed states who did what to whom; unknown moderator is not guessed', 
   assert.equal(known.toJSON().description, '**GhostAdmin** moved **noob**');
   const unknown = renderModEmbed({ username: 'noob', userId: 'u', action: 'disconnected', channelName: 'A', moderatorTag: 'Unknown', timestampSec: 1, includeIds: false });
   assert.equal(unknown.toJSON().description, '**noob** was disconnected by an unknown moderator');
+});
+
+test('classifyModAttribution distinguishes self / mod / unknown', () => {
+  assert.deepEqual(classifyModAttribution([], { now: T0 }), { status: 'self' });
+  assert.deepEqual(
+    classifyModAttribution([{ executorId: 'm', executorTag: 'M#1', createdTimestamp: T0, extraChannelId: 'B' }], { now: T0 + 100, channelId: 'B' }),
+    { status: 'mod', id: 'm', tag: 'M#1' },
+  );
+  assert.deepEqual(
+    classifyModAttribution([
+      { executorId: 'm1', createdTimestamp: T0, extraChannelId: 'B' },
+      { executorId: 'm2', createdTimestamp: T0, extraChannelId: 'B' },
+    ], { now: T0, channelId: 'B' }),
+    { status: 'unknown' },
+  );
+  // stale entry → no in-window candidate → treated as self, not a guess
+  assert.deepEqual(classifyModAttribution([{ executorId: 'm', createdTimestamp: T0 - 60_000, extraChannelId: 'B' }], { now: T0, channelId: 'B' }), { status: 'self' });
+});
+
+test('move embed names the mover (self vs unknown)', () => {
+  const mk = (moverNote: string) => renderMoveEmbed({
+    username: 'ghost', fromName: 'A', fromId: 'a', toName: 'B', toId: 'b', userId: 'u',
+    timeInPreviousMs: 1000, fromBefore: 2, fromAfter: 1, toBefore: 0, toAfter: 1, joinedAtSec: 1, moveNumber: 1,
+    timestampSec: 1, includeIds: false, showCounts: true, showDuration: true, moverNote,
+  }).toJSON().description;
+  assert.equal(mk('**ghost** moved themselves'), '**ghost** moved themselves');
+  assert.equal(mk('Moved by: unknown'), 'Moved by: unknown');
 });
 
 test('mod attribution matches target user and passes the reason through', () => {

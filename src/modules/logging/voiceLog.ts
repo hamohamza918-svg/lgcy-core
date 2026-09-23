@@ -121,15 +121,20 @@ export interface AuditEntryLike {
   reason?: string | null;
 }
 
+export type ModAttribution =
+  | { status: 'mod'; id: string; tag: string; reason?: string }
+  | { status: 'self' } // no matching audit entry → the member acted on themselves
+  | { status: 'unknown' }; // couldn't read the audit log, or ambiguous → don't guess
+
 /**
- * Attributes a moderator ONLY when reliable: exactly one audit entry in-window
- * (and matching channel/target when given). Zero or multiple candidates → null.
- * We never guess which moderator acted.
+ * Classifies who caused a voice change. Exactly one in-window audit entry (with
+ * matching channel/target when given) → that moderator. Zero → self. Multiple
+ * (ambiguous) → unknown. We never guess which moderator acted.
  */
-export function attributeVoiceModerator(
+export function classifyModAttribution(
   entries: AuditEntryLike[],
   opts: { now: number; windowMs?: number; channelId?: string; targetId?: string },
-): { id: string; tag: string; reason?: string } | null {
+): ModAttribution {
   const windowMs = opts.windowMs ?? 4000;
   const candidates = entries.filter(
     (e) =>
@@ -138,11 +143,24 @@ export function attributeVoiceModerator(
       (!opts.channelId || !e.extraChannelId || e.extraChannelId === opts.channelId) &&
       (!opts.targetId || e.targetId === opts.targetId),
   );
-  if (candidates.length !== 1) return null;
+  if (candidates.length === 0) return { status: 'self' };
+  if (candidates.length > 1) return { status: 'unknown' };
   const e = candidates[0]!;
-  const res: { id: string; tag: string; reason?: string } = { id: e.executorId!, tag: e.executorTag ?? e.executorId! };
+  const res: ModAttribution = { status: 'mod', id: e.executorId!, tag: e.executorTag ?? e.executorId! };
   if (e.reason) res.reason = e.reason;
   return res;
+}
+
+/** mod info when reliably attributable, else null. */
+export function attributeVoiceModerator(
+  entries: AuditEntryLike[],
+  opts: { now: number; windowMs?: number; channelId?: string; targetId?: string },
+): { id: string; tag: string; reason?: string } | null {
+  const r = classifyModAttribution(entries, opts);
+  if (r.status !== 'mod') return null;
+  const out: { id: string; tag: string; reason?: string } = { id: r.id, tag: r.tag };
+  if (r.reason) out.reason = r.reason;
+  return out;
 }
 
 // ── Timestamp helpers ───────────────────────────────────────────────
@@ -182,14 +200,15 @@ export interface MoveData {
   username: string; avatarUrl?: string; fromName: string; fromId: string; toName: string; toId: string;
   userId: string; timeInPreviousMs: number; fromBefore: number; fromAfter: number; toBefore: number; toAfter: number;
   joinedAtSec: number; moveNumber: number; timestampSec: number; includeIds: boolean;
-  showCounts: boolean; showDuration: boolean;
+  showCounts: boolean; showDuration: boolean; moverNote?: string;
 }
 export function renderMoveEmbed(d: MoveData): EmbedBuilder {
   const e = new EmbedBuilder()
     .setColor(VOICE_COLORS.move)
     .setAuthor({ name: d.username, iconURL: d.avatarUrl })
-    .setTitle('🔀 Voice Channel Changed')
-    .addFields(
+    .setTitle('🔀 Voice Channel Changed');
+  if (d.moverNote) e.setDescription(d.moverNote);
+  e.addFields(
       { name: 'From', value: `🔊 ${d.fromName}`, inline: true },
       { name: 'To', value: `🔊 ${d.toName}`, inline: true },
     );
@@ -295,12 +314,12 @@ function toLike(s: VoiceState): VoiceStateLike {
 }
 const count = (ch: VoiceBasedChannel | null | undefined): number => (ch ? ch.members.size : 0);
 
-async function detectMoveOrDisconnectMod(
+async function detectMoveAttribution(
   guild: import('discord.js').Guild,
   type: AuditLogEvent.MemberMove | AuditLogEvent.MemberDisconnect,
   channelId: string | undefined,
   now: number,
-): Promise<{ id: string; tag: string; reason?: string } | null> {
+): Promise<ModAttribution> {
   try {
     const logs = await guild.fetchAuditLogs({ type, limit: 5 });
     const entries: AuditEntryLike[] = [...logs.entries.values()].map((e) => ({
@@ -310,9 +329,9 @@ async function detectMoveOrDisconnectMod(
       extraChannelId: (e.extra as { channel?: { id?: string } } | undefined)?.channel?.id ?? null,
       reason: e.reason ?? null,
     }));
-    return attributeVoiceModerator(entries, { now, windowMs: 4000, channelId });
+    return classifyModAttribution(entries, { now, windowMs: 4000, channelId });
   } catch {
-    return null;
+    return { status: 'unknown' }; // no ViewAuditLog permission → can't attribute
   }
 }
 
@@ -380,17 +399,20 @@ export const voiceStateLog: EventHandler<Events.VoiceStateUpdate> = {
       const fromCh = guild.channels.cache.get(ev.from);
       const fromAfter = fromCh?.isVoiceBased() ? fromCh.members.size : 0;
       recordChannelSize(guild.id, ev.to, toAfter);
-      const mod = vl.moderatorActions ? await detectMoveOrDisconnectMod(guild, AuditLogEvent.MemberMove, ev.to, now) : null;
-      if (mod) {
+      const attr: ModAttribution = vl.moderatorActions
+        ? await detectMoveAttribution(guild, AuditLogEvent.MemberMove, ev.to, now)
+        : { status: 'self' };
+      if (attr.status === 'mod') {
         await sendLog(guild, 'voice', renderModEmbed({
           username, avatarUrl, userId: user.id, action: 'moved',
           fromName: chanName(ev.from), fromId: ev.from, toName: newState.channel?.name ?? 'Unknown', toId: ev.to,
-          moderatorTag: mod.tag, moderatorId: mod.id, reason: mod.reason, timestampSec: tsSec, includeIds: vl.includeIds,
+          moderatorTag: attr.tag, moderatorId: attr.id, reason: attr.reason, timestampSec: tsSec, includeIds: vl.includeIds,
         }));
       } else if (vl.moves) {
+        const moverNote = attr.status === 'self' ? `**${username}** moved themselves` : 'Moved by: unknown';
         await sendLog(guild, 'voice', renderMoveEmbed({
           username, avatarUrl, fromName: chanName(ev.from), fromId: ev.from, toName: newState.channel?.name ?? 'Unknown', toId: ev.to,
-          userId: user.id, timeInPreviousMs: res.timeInPreviousMs,
+          userId: user.id, timeInPreviousMs: res.timeInPreviousMs, moverNote,
           fromBefore: fromAfter + 1, fromAfter, toBefore: Math.max(0, toAfter - 1), toAfter,
           joinedAtSec: Math.floor(res.session.joinedAt / 1000), moveNumber: res.moveNumber,
           timestampSec: tsSec, includeIds: vl.includeIds, showCounts: vl.memberCounts, showDuration: vl.sessionDuration,
@@ -401,12 +423,14 @@ export const voiceStateLog: EventHandler<Events.VoiceStateUpdate> = {
 
     if (ev.kind === 'leave') {
       const end = endSession(guild.id, user.id, now);
-      const mod = vl.moderatorActions ? await detectMoveOrDisconnectMod(guild, AuditLogEvent.MemberDisconnect, ev.channelId, now) : null;
-      if (mod) {
+      const attr: ModAttribution = vl.moderatorActions
+        ? await detectMoveAttribution(guild, AuditLogEvent.MemberDisconnect, ev.channelId, now)
+        : { status: 'self' };
+      if (attr.status === 'mod') {
         await sendLog(guild, 'voice', renderModEmbed({
           username, avatarUrl, userId: user.id, action: 'disconnected',
           channelName: chanName(ev.channelId), channelId: ev.channelId,
-          moderatorTag: mod.tag, moderatorId: mod.id, reason: mod.reason, timestampSec: tsSec, includeIds: vl.includeIds,
+          moderatorTag: attr.tag, moderatorId: attr.id, reason: attr.reason, timestampSec: tsSec, includeIds: vl.includeIds,
         }));
       } else if (vl.leaves) {
         const route = (end?.session.channelsVisited ?? [ev.channelId]).map(chanName);
