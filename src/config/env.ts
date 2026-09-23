@@ -29,6 +29,13 @@ const envSchema = z.object({
   WELCOME_CHANNEL_ID: z.string().optional(),
   RULES_CHANNEL_ID: z.string().optional(),
   ROLES_CHANNEL_ID: z.string().optional(),
+  // Log destinations per category (same purpose as above — restore on restart).
+  LOG_MEMBER_CHANNEL_ID: z.string().optional(),
+  LOG_MESSAGE_CHANNEL_ID: z.string().optional(),
+  LOG_ROLE_CHANNEL_ID: z.string().optional(),
+  LOG_VOICE_CHANNEL_ID: z.string().optional(),
+  LOG_SERVER_CHANNEL_ID: z.string().optional(),
+  LOG_MODERATION_CHANNEL_ID: z.string().optional(),
 });
 
 export type Env = z.infer<typeof envSchema>;

@@ -30,3 +30,16 @@ services:
         value: "1534981713300685024"
       - key: ROLES_CHANNEL_ID
         value: "1550673783097139261"
+      # Logging destinations per category (سجل-* channels + Decisions).
+      - key: LOG_MEMBER_CHANNEL_ID
+        value: "1534981638516248667"
+      - key: LOG_MESSAGE_CHANNEL_ID
+        value: "1534981635311800421"
+      - key: LOG_ROLE_CHANNEL_ID
+        value: "1534981660444069969"
+      - key: LOG_VOICE_CHANNEL_ID
+        value: "1534981657159929937"
+      - key: LOG_SERVER_CHANNEL_ID
+        value: "1534981664315408485"
+      - key: LOG_MODERATION_CHANNEL_ID
+        value: "1534981678848671926"

@@ -31,13 +31,22 @@ function seedConfigFromEnv(): void {
   const gid = credentials.getGuildId();
   if (!gid) return;
   const env = loadEnv();
-  if (!env.WELCOME_CHANNEL_ID && !env.RULES_CHANNEL_ID && !env.ROLES_CHANNEL_ID) return;
+  const anyWelcome = env.WELCOME_CHANNEL_ID || env.RULES_CHANNEL_ID || env.ROLES_CHANNEL_ID;
+  const anyLog = env.LOG_MEMBER_CHANNEL_ID || env.LOG_MESSAGE_CHANNEL_ID || env.LOG_ROLE_CHANNEL_ID
+    || env.LOG_VOICE_CHANNEL_ID || env.LOG_SERVER_CHANNEL_ID || env.LOG_MODERATION_CHANNEL_ID;
+  if (!anyWelcome && !anyLog) return;
   const cfg = getGuildConfig(gid);
   const seeded: string[] = [];
   updateGuildConfig(gid, (draft) => {
     if (env.WELCOME_CHANNEL_ID && !cfg.welcomeChannelId) { draft.welcomeChannelId = env.WELCOME_CHANNEL_ID; seeded.push('welcome'); }
     if (env.RULES_CHANNEL_ID && !cfg.rulesChannelId) { draft.rulesChannelId = env.RULES_CHANNEL_ID; seeded.push('rules'); }
     if (env.ROLES_CHANNEL_ID && !cfg.rolesChannelId) { draft.rolesChannelId = env.ROLES_CHANNEL_ID; seeded.push('roles'); }
+    if (env.LOG_MEMBER_CHANNEL_ID && !cfg.logChannels.member) { draft.logChannels.member = env.LOG_MEMBER_CHANNEL_ID; seeded.push('log:member'); }
+    if (env.LOG_MESSAGE_CHANNEL_ID && !cfg.logChannels.message) { draft.logChannels.message = env.LOG_MESSAGE_CHANNEL_ID; seeded.push('log:message'); }
+    if (env.LOG_ROLE_CHANNEL_ID && !cfg.logChannels.role) { draft.logChannels.role = env.LOG_ROLE_CHANNEL_ID; seeded.push('log:role'); }
+    if (env.LOG_VOICE_CHANNEL_ID && !cfg.logChannels.voice) { draft.logChannels.voice = env.LOG_VOICE_CHANNEL_ID; seeded.push('log:voice'); }
+    if (env.LOG_SERVER_CHANNEL_ID && !cfg.logChannels.server) { draft.logChannels.server = env.LOG_SERVER_CHANNEL_ID; seeded.push('log:server'); }
+    if (env.LOG_MODERATION_CHANNEL_ID && !cfg.logChannels.moderation) { draft.logChannels.moderation = env.LOG_MODERATION_CHANNEL_ID; seeded.push('log:moderation'); }
   });
   if (seeded.length) logger.info({ seeded }, 'seeded channel config from env');
 }
