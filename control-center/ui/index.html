@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LGCY Control Center</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">L</div>
+        <div>
+          <div class="title">LGCY</div>
+          <div class="subtitle">Control Center</div>
+        </div>
+      </div>
+      <nav class="nav" id="nav">
+        <a data-route="overview"><span class="ico">📊</span> Overview</a>
+        <a data-route="bot"><span class="ico">🤖</span> Bot</a>
+        <a data-route="connection"><span class="ico">🔌</span> Connection</a>
+        <a data-route="modules"><span class="ico">🧩</span> Modules</a>
+        <div class="divider"></div>
+        <a data-route="welcome"><span class="ico">👋</span> Welcome</a>
+        <a data-route="roles"><span class="ico">🎭</span> Roles</a>
+        <a data-route="roleManager"><span class="ico">🧱</span> Role Manager</a>
+        <a data-route="deploy"><span class="ico">🚀</span> Deploy</a>
+        <a data-route="moderation"><span class="ico">🛡️</span> Moderation</a>
+        <a data-route="tickets"><span class="ico">🎫</span> Tickets</a>
+        <a data-route="logging"><span class="ico">📝</span> Logging</a>
+        <a data-route="voice"><span class="ico">🔊</span> Voice</a>
+        <div class="divider"></div>
+        <a data-route="server"><span class="ico">🌐</span> Server</a>
+        <a data-route="database"><span class="ico">🗄️</span> Database</a>
+        <a data-route="diagnostics"><span class="ico">🩺</span> Diagnostics</a>
+        <a data-route="activity"><span class="ico">🧾</span> Activity</a>
+        <a data-route="settings"><span class="ico">⚙️</span> Settings</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <div class="pageheader" id="pageheader">
+        <div class="modebadge mock" id="mode-badge" title="Data source">◈ MOCK MODE</div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span class="lockbadge locked" id="lock-badge" title="Live mutation lock">🔒 LIVE MUTATIONS LOCKED</span>
+          <button class="healthbadge" id="health-badge" title="Open diagnostics">System health…</button>
+          <span class="verbadge" id="ver-badge">v1.0.0</span>
+        </div>
+      </div>
+      <div class="draftbar" id="draftbar">
+        <div>✏️ <strong>Unsaved draft</strong> — changes are staged, not yet applied to the bot config.</div>
+        <div style="display:flex;gap:8px">
+          <button class="btn ghost" id="draft-review">Review changes</button>
+          <button class="btn ghost" id="draft-discard">Discard</button>
+          <button class="btn primary" id="draft-apply">Apply</button>
+        </div>
+      </div>
+      <div id="view"></div>
+    </main>
+  </div>
+  <div id="overlay"></div>
+  <div class="toast" id="toast"></div>
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>

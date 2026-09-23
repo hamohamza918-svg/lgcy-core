@@ -1,0 +1,784 @@
+[
+  {
+    "module": "system",
+    "options": [],
+    "name": "ping",
+    "description": "Check that LGCY Core is responsive",
+    "type": 1
+  },
+  {
+    "module": "system",
+    "options": [
+      {
+        "type": 1,
+        "name": "list",
+        "description": "List all modules and their status",
+        "options": []
+      },
+      {
+        "type": 1,
+        "name": "enable",
+        "description": "Enable a module on this server",
+        "options": [
+          {
+            "type": 3,
+            "name": "name",
+            "description": "Module name",
+            "required": true
+          }
+        ]
+      },
+      {
+        "type": 1,
+        "name": "disable",
+        "description": "Disable a module on this server",
+        "options": [
+          {
+            "type": 3,
+            "name": "name",
+            "description": "Module name",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "name": "modules",
+    "description": "List LGCY modules and enable/disable them",
+    "default_member_permissions": "32",
+    "type": 1
+  },
+  {
+    "module": "welcome",
+    "options": [
+      {
+        "type": 1,
+        "name": "test",
+        "description": "Preview the welcome card for yourself (only you can see it)",
+        "options": []
+      },
+      {
+        "type": 1,
+        "name": "channel",
+        "description": "Set the channel where welcome cards are posted",
+        "options": [
+          {
+            "channel_types": [
+              0
+            ],
+            "name": "channel",
+            "description": "The welcome channel",
+            "required": true,
+            "type": 7
+          }
+        ]
+      },
+      {
+        "type": 1,
+        "name": "rules-channel",
+        "description": "Set the #rules channel referenced in the welcome message",
+        "options": [
+          {
+            "channel_types": [
+              0
+            ],
+            "name": "channel",
+            "description": "The rules channel",
+            "required": true,
+            "type": 7
+          }
+        ]
+      },
+      {
+        "type": 1,
+        "name": "roles-channel",
+        "description": "Set the #roles channel referenced in the welcome message",
+        "options": [
+          {
+            "channel_types": [
+              0
+            ],
+            "name": "channel",
+            "description": "The roles channel",
+            "required": true,
+            "type": 7
+          }
+        ]
+      },
+      {
+        "type": 1,
+        "name": "status",
+        "description": "Show the current welcome configuration",
+        "options": []
+      }
+    ],
+    "name": "welcome",
+    "description": "Configure and test the LGCY welcome system",
+    "default_member_permissions": "32",
+    "type": 1
+  },
+  {
+    "module": "roles",
+    "options": [
+      {
+        "type": 1,
+        "name": "group-create",
+        "description": "Create a self-role group (e.g. Games, Notifications)",
+        "options": [
+          {
+            "type": 3,
+            "name": "key",
+            "description": "Short id, e.g. games",
+            "required": true
+          },
+          {
+            "type": 3,
+            "name": "label",
+            "description": "Display name, e.g. Games",
+            "required": true
+          },
+          {
+            "name": "exclusive",
+            "description": "Single choice only?",
+            "required": false,
+            "type": 5
+          }
+        ]
+      },
+      {
+        "type": 1,
+        "name": "add",
+        "description": "Add an EXISTING role to a group",
+        "options": [
+          {
+            "type": 3,
+            "name": "group",
+            "description": "Group key",
+            "required": true
+          },
+          {
+            "name": "role",
+            "description": "Existing role to offer",
+            "required": true,
+            "type": 8
+          },
+          {
+            "type": 3,
+            "name": "label",
+            "description": "Button label (defaults to role name)",
+            "required": false
+          },
+          {
+            "type": 3,
+            "name": "emoji",
+            "description": "Optional emoji",
+            "required": false
+          },
+          {
+            "type": 3,
+            "name": "description",
+            "description": "Optional description",
+            "required": false
+          }
+        ]
+      },
+      {
+        "type": 1,
+        "name": "remove",
+        "description": "Remove a role from a group",
+        "options": [
+          {
+            "type": 3,
+            "name": "group",
+            "description": "Group key",
+            "required": true
+          },
+          {
+            "name": "role",
+            "description": "Role to remove",
+            "required": true,
+            "type": 8
+          }
+        ]
+      },
+      {
+        "type": 1,
+        "name": "panel",
+        "description": "Post the self-role selection panel for a group",
+        "options": [
+          {
+            "type": 3,
+            "name": "group",
+            "description": "Group key",
+            "required": true
+          },
+          {
+            "channel_types": [
+              0
+            ],
+            "name": "channel",
+            "description": "Where to post (defaults to here)",
+            "required": false,
+            "type": 7
+          }
+        ]
+      },
+      {
+        "type": 1,
+        "name": "list",
+        "description": "List configured role groups",
+        "options": []
+      }
+    ],
+    "name": "roles",
+    "description": "Manage LGCY self-assignable role groups",
+    "default_member_permissions": "268435456",
+    "type": 1
+  },
+  {
+    "module": "moderation",
+    "options": [
+      {
+        "name": "user",
+        "description": "Member to warn",
+        "required": true,
+        "type": 6
+      },
+      {
+        "type": 3,
+        "name": "reason",
+        "description": "Reason",
+        "required": true
+      }
+    ],
+    "name": "warn",
+    "description": "Warn a member",
+    "default_member_permissions": "1099511627776",
+    "type": 1
+  },
+  {
+    "module": "moderation",
+    "options": [
+      {
+        "name": "user",
+        "description": "Member to inspect",
+        "required": true,
+        "type": 6
+      }
+    ],
+    "name": "warnings",
+    "description": "View a member’s moderation history",
+    "default_member_permissions": "1099511627776",
+    "type": 1
+  },
+  {
+    "module": "moderation",
+    "options": [
+      {
+        "name": "user",
+        "description": "Member",
+        "required": true,
+        "type": 6
+      },
+      {
+        "type": 3,
+        "name": "duration",
+        "description": "e.g. 10m, 2h, 1d (max 28d)",
+        "required": true
+      },
+      {
+        "type": 3,
+        "name": "reason",
+        "description": "Reason",
+        "required": false
+      }
+    ],
+    "name": "timeout",
+    "description": "Temporarily mute a member (Discord timeout)",
+    "default_member_permissions": "1099511627776",
+    "type": 1
+  },
+  {
+    "module": "moderation",
+    "options": [
+      {
+        "name": "user",
+        "description": "Member",
+        "required": true,
+        "type": 6
+      },
+      {
+        "type": 3,
+        "name": "reason",
+        "description": "Reason",
+        "required": false
+      }
+    ],
+    "name": "untimeout",
+    "description": "Remove a member’s timeout",
+    "default_member_permissions": "1099511627776",
+    "type": 1
+  },
+  {
+    "module": "moderation",
+    "options": [
+      {
+        "name": "user",
+        "description": "Member",
+        "required": true,
+        "type": 6
+      },
+      {
+        "type": 3,
+        "name": "reason",
+        "description": "Reason",
+        "required": false
+      }
+    ],
+    "name": "kick",
+    "description": "Kick a member from the server",
+    "default_member_permissions": "2",
+    "type": 1
+  },
+  {
+    "module": "moderation",
+    "options": [
+      {
+        "name": "user",
+        "description": "Member",
+        "required": true,
+        "type": 6
+      },
+      {
+        "type": 3,
+        "name": "reason",
+        "description": "Reason",
+        "required": false
+      },
+      {
+        "max_value": 7,
+        "min_value": 0,
+        "type": 4,
+        "name": "delete-days",
+        "description": "Delete this many days of their messages (0-7)",
+        "required": false
+      }
+    ],
+    "name": "ban",
+    "description": "Ban a member from the server",
+    "default_member_permissions": "4",
+    "type": 1
+  },
+  {
+    "module": "moderation",
+    "options": [
+      {
+        "type": 3,
+        "name": "user-id",
+        "description": "The banned user’s ID",
+        "required": true
+      },
+      {
+        "type": 3,
+        "name": "reason",
+        "description": "Reason",
+        "required": false
+      }
+    ],
+    "name": "unban",
+    "description": "Unban a user by their ID",
+    "default_member_permissions": "4",
+    "type": 1
+  },
+  {
+    "module": "moderation",
+    "options": [
+      {
+        "max_value": 100,
+        "min_value": 1,
+        "type": 4,
+        "name": "amount",
+        "description": "How many (1-100)",
+        "required": true
+      },
+      {
+        "name": "user",
+        "description": "Only delete messages from this user",
+        "required": false,
+        "type": 6
+      }
+    ],
+    "name": "purge",
+    "description": "Bulk-delete recent messages in this channel",
+    "default_member_permissions": "8192",
+    "type": 1
+  },
+  {
+    "module": "moderation",
+    "options": [
+      {
+        "max_value": 21600,
+        "min_value": 0,
+        "type": 4,
+        "name": "seconds",
+        "description": "Seconds between messages (0 to disable, max 21600)",
+        "required": true
+      }
+    ],
+    "name": "slowmode",
+    "description": "Set slowmode for this channel",
+    "default_member_permissions": "16",
+    "type": 1
+  },
+  {
+    "module": "moderation",
+    "options": [],
+    "name": "lock",
+    "description": "Lock this channel (deny @everyone from sending)",
+    "default_member_permissions": "16",
+    "type": 1
+  },
+  {
+    "module": "moderation",
+    "options": [],
+    "name": "unlock",
+    "description": "Unlock this channel",
+    "default_member_permissions": "16",
+    "type": 1
+  },
+  {
+    "module": "logging",
+    "options": [
+      {
+        "type": 1,
+        "name": "set",
+        "description": "Set the channel for a log category",
+        "options": [
+          {
+            "type": 3,
+            "choices": [
+              {
+                "name": "member",
+                "value": "member"
+              },
+              {
+                "name": "message",
+                "value": "message"
+              },
+              {
+                "name": "role",
+                "value": "role"
+              },
+              {
+                "name": "moderation",
+                "value": "moderation"
+              },
+              {
+                "name": "voice",
+                "value": "voice"
+              },
+              {
+                "name": "server",
+                "value": "server"
+              }
+            ],
+            "name": "category",
+            "description": "Which category",
+            "required": true
+          },
+          {
+            "channel_types": [
+              0
+            ],
+            "name": "channel",
+            "description": "Destination channel",
+            "required": true,
+            "type": 7
+          }
+        ]
+      },
+      {
+        "type": 1,
+        "name": "disable",
+        "description": "Stop logging a category",
+        "options": [
+          {
+            "type": 3,
+            "choices": [
+              {
+                "name": "member",
+                "value": "member"
+              },
+              {
+                "name": "message",
+                "value": "message"
+              },
+              {
+                "name": "role",
+                "value": "role"
+              },
+              {
+                "name": "moderation",
+                "value": "moderation"
+              },
+              {
+                "name": "voice",
+                "value": "voice"
+              },
+              {
+                "name": "server",
+                "value": "server"
+              }
+            ],
+            "name": "category",
+            "description": "Which category",
+            "required": true
+          }
+        ]
+      },
+      {
+        "type": 1,
+        "name": "status",
+        "description": "Show logging configuration",
+        "options": []
+      }
+    ],
+    "name": "logging",
+    "description": "Configure LGCY logging destinations",
+    "default_member_permissions": "32",
+    "type": 1
+  },
+  {
+    "module": "tickets",
+    "options": [
+      {
+        "type": 1,
+        "name": "panel",
+        "description": "Post the ticket panel",
+        "options": [
+          {
+            "channel_types": [
+              0
+            ],
+            "name": "channel",
+            "description": "Where to post (defaults to here)",
+            "required": false,
+            "type": 7
+          }
+        ]
+      },
+      {
+        "type": 1,
+        "name": "status",
+        "description": "Show ticket configuration & open ticket count",
+        "options": []
+      },
+      {
+        "type": 2,
+        "name": "set",
+        "description": "Set ticket channels & options",
+        "options": [
+          {
+            "type": 1,
+            "name": "parent",
+            "description": "Category new tickets are created under",
+            "options": [
+              {
+                "channel_types": [
+                  4
+                ],
+                "name": "category",
+                "description": "Parent category",
+                "required": true,
+                "type": 7
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "name": "archive",
+            "description": "Category closed tickets move to",
+            "options": [
+              {
+                "channel_types": [
+                  4
+                ],
+                "name": "category",
+                "description": "Archive category",
+                "required": true,
+                "type": 7
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "name": "log",
+            "description": "Ticket log channel",
+            "options": [
+              {
+                "channel_types": [
+                  0
+                ],
+                "name": "channel",
+                "description": "Log channel",
+                "required": true,
+                "type": 7
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "name": "panel-channel",
+            "description": "Default channel for the panel",
+            "options": [
+              {
+                "channel_types": [
+                  0
+                ],
+                "name": "channel",
+                "description": "Panel channel",
+                "required": true,
+                "type": 7
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "name": "delete-delay",
+            "description": "Seconds before a closed ticket auto-deletes (0 = never)",
+            "options": [
+              {
+                "max_value": 604800,
+                "min_value": 0,
+                "type": 4,
+                "name": "seconds",
+                "description": "0 to disable",
+                "required": true
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "name": "cooldown",
+            "description": "Min seconds between ticket creations per user",
+            "options": [
+              {
+                "max_value": 3600,
+                "min_value": 0,
+                "type": 4,
+                "name": "seconds",
+                "description": "Cooldown seconds",
+                "required": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": 2,
+        "name": "staff",
+        "description": "Manage ticket staff roles",
+        "options": [
+          {
+            "type": 1,
+            "name": "add",
+            "description": "Add a staff role",
+            "options": [
+              {
+                "name": "role",
+                "description": "Role",
+                "required": true,
+                "type": 8
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "name": "remove",
+            "description": "Remove a staff role",
+            "options": [
+              {
+                "name": "role",
+                "description": "Role",
+                "required": true,
+                "type": 8
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": 2,
+        "name": "category",
+        "description": "Manage ticket categories",
+        "options": [
+          {
+            "type": 1,
+            "name": "add",
+            "description": "Add a category",
+            "options": [
+              {
+                "type": 3,
+                "name": "key",
+                "description": "Unique key",
+                "required": true
+              },
+              {
+                "type": 3,
+                "name": "label",
+                "description": "Display label",
+                "required": true
+              },
+              {
+                "type": 3,
+                "name": "prefix",
+                "description": "Channel-name prefix (e.g. report)",
+                "required": true
+              },
+              {
+                "type": 3,
+                "name": "emoji",
+                "description": "Emoji",
+                "required": false
+              },
+              {
+                "type": 3,
+                "name": "description",
+                "description": "Short description",
+                "required": false
+              },
+              {
+                "name": "allow-multiple",
+                "description": "Allow multiple open tickets of this type",
+                "required": false,
+                "type": 5
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "name": "remove",
+            "description": "Remove a category",
+            "options": [
+              {
+                "type": 3,
+                "name": "key",
+                "description": "Category key",
+                "required": true
+              }
+            ]
+          },
+          {
+            "type": 1,
+            "name": "list",
+            "description": "List categories",
+            "options": []
+          }
+        ]
+      }
+    ],
+    "name": "tickets",
+    "description": "Configure and manage the LGCY ticket system",
+    "default_member_permissions": "32",
+    "type": 1
+  }
+]

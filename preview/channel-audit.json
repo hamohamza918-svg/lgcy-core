@@ -1,0 +1,2399 @@
+{
+  "guild": {
+    "id": "1534980236305891408",
+    "name": "𝙻 𝙶 𝙲 𝚈"
+  },
+  "channelCount": 58,
+  "channels": [
+    {
+      "id": "1534981664315408485",
+      "name": "︙𝑪𝒉𝒂𝒏𝒏𝒆𝒍-𝑳𝒐𝒈・سجل-القنوات",
+      "type": 0,
+      "parentId": "1534981631755157727",
+      "position": 4,
+      "overwrites": [
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "ViewChannel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981734414684321",
+      "name": "︙〔💬〕𝑮𝒆𝒏𝒆𝒓𝒂𝒍・الشات-العام",
+      "type": 0,
+      "parentId": "1534981727921901588",
+      "position": 0,
+      "overwrites": [
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981713300685024",
+      "name": "︙〢𝑹𝒖𝒍𝒆𝒔・القوانين-📜",
+      "type": 0,
+      "parentId": "1534981696745902161",
+      "position": 2,
+      "overwrites": [
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": [
+            "SendMessages",
+            "SendTTSMessages"
+          ]
+        },
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981815356489778",
+      "name": "𝑭𝑰𝑭𝑨 ⚽",
+      "type": 2,
+      "parentId": "1534981797102878740",
+      "position": 2,
+      "overwrites": [
+        {
+          "roleId": "1534981591250505749",
+          "roleName": "🎮 ︱ FIFA",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "ViewChannel",
+            "Connect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981818875379835",
+      "name": "𝑶𝒗𝒆𝒓𝒘𝒂𝒕𝒄𝒉",
+      "type": 2,
+      "parentId": "1534981797102878740",
+      "position": 3,
+      "overwrites": [
+        {
+          "roleId": "1534981585516888205",
+          "roleName": "🎮 ︱ Overwatch",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "ViewChannel",
+            "Connect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981837028462682",
+      "name": "︙𝑴𝒆𝒎𝒆𝒔・ميمز-😂",
+      "type": 0,
+      "parentId": "1534981727921901588",
+      "position": 4,
+      "overwrites": [
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "AddReactions",
+            "ViewChannel",
+            "SendMessages",
+            "AttachFiles",
+            "ReadMessageHistory",
+            "MentionEveryone",
+            "UseExternalEmojis",
+            "UseExternalStickers"
+          ],
+          "deny": [
+            "PrioritySpeaker",
+            "Stream",
+            "SendTTSMessages",
+            "ManageMessages",
+            "EmbedLinks",
+            "Connect",
+            "Speak",
+            "MuteMembers",
+            "DeafenMembers",
+            "MoveMembers",
+            "UseVAD",
+            "UseApplicationCommands",
+            "ManageEvents",
+            "ManageThreads",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads",
+            "UseEmbeddedActivities",
+            "UseSoundboard",
+            "CreateEvents",
+            "UseExternalSounds",
+            "SendVoiceMessages",
+            "SetVoiceChannelStatus",
+            "SendPolls",
+            "UseExternalApps",
+            "PinMessages",
+            "BypassSlowmode"
+          ]
+        },
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981807064350862",
+      "name": "︙𝑮𝒂𝒎𝒆𝒓-𝑪𝒉𝒂𝒕・شات-الالعاب",
+      "type": 0,
+      "parentId": "1534981797102878740",
+      "position": 1,
+      "overwrites": [
+        {
+          "roleId": "1534981591250505749",
+          "roleName": "🎮 ︱ FIFA",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "ViewChannel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981848013471865",
+      "name": "︙𝑷𝒉𝒐𝒕𝒐𝒔・صوركم-📷",
+      "type": 0,
+      "parentId": "1534981727921901588",
+      "position": 2,
+      "overwrites": [
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "AddReactions",
+            "ViewChannel",
+            "SendMessages",
+            "AttachFiles",
+            "ReadMessageHistory",
+            "MentionEveryone",
+            "UseExternalEmojis",
+            "UseExternalStickers"
+          ],
+          "deny": [
+            "PrioritySpeaker",
+            "Stream",
+            "SendTTSMessages",
+            "ManageMessages",
+            "EmbedLinks",
+            "Connect",
+            "Speak",
+            "MuteMembers",
+            "DeafenMembers",
+            "MoveMembers",
+            "UseVAD",
+            "UseApplicationCommands",
+            "ManageEvents",
+            "ManageThreads",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads",
+            "UseEmbeddedActivities",
+            "UseSoundboard",
+            "CreateEvents",
+            "UseExternalSounds",
+            "SendVoiceMessages",
+            "SetVoiceChannelStatus",
+            "SendPolls",
+            "UseExternalApps",
+            "PinMessages",
+            "BypassSlowmode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981833115041862",
+      "name": "︙𝑪𝒍𝒊𝒑𝒔・مقاطع-🎬",
+      "type": 0,
+      "parentId": "1534981727921901588",
+      "position": 3,
+      "overwrites": [
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "AddReactions",
+            "ViewChannel",
+            "SendMessages",
+            "AttachFiles",
+            "ReadMessageHistory",
+            "MentionEveryone",
+            "UseExternalEmojis",
+            "UseExternalStickers"
+          ],
+          "deny": [
+            "PrioritySpeaker",
+            "Stream",
+            "SendTTSMessages",
+            "ManageMessages",
+            "EmbedLinks",
+            "Connect",
+            "Speak",
+            "MuteMembers",
+            "DeafenMembers",
+            "MoveMembers",
+            "UseVAD",
+            "UseApplicationCommands",
+            "ManageEvents",
+            "ManageThreads",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads",
+            "UseEmbeddedActivities",
+            "UseSoundboard",
+            "CreateEvents",
+            "UseExternalSounds",
+            "SendVoiceMessages",
+            "SetVoiceChannelStatus",
+            "SendPolls",
+            "UseExternalApps",
+            "PinMessages",
+            "BypassSlowmode"
+          ]
+        },
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981696745902161",
+      "name": "━━━ 𝑳 𝑮 𝑪 𝒀 · 𝑺𝑻𝑨𝑹𝑻 ━━━",
+      "type": 4,
+      "parentId": null,
+      "position": 0,
+      "overwrites": [
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": [
+            "SendMessages",
+            "SendTTSMessages"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981793877327892",
+      "name": "L G C Y🔗𝑷𝒓𝒊𝒗𝒂𝒕𝒆 4",
+      "type": 2,
+      "parentId": "1534981780007026808",
+      "position": 3,
+      "overwrites": []
+    },
+    {
+      "id": "1534981745559080990",
+      "name": "︙𝑨𝒋𝒓・أجر-🕊️",
+      "type": 0,
+      "parentId": "1534981727921901588",
+      "position": 7,
+      "overwrites": [
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981631755157727",
+      "name": "━━━ 𝑳 𝑮 𝑪 𝒀 · 𝑺𝒀𝑺𝑻𝑬𝑀 ━━━",
+      "type": 4,
+      "parentId": null,
+      "position": 7,
+      "overwrites": [
+        {
+          "roleId": "1534981506747994132",
+          "roleName": "♛ ︱ Co-Owner",
+          "allow": [],
+          "deny": [
+            "ManageChannels",
+            "ManageMessages"
+          ]
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "CreateInstantInvite",
+            "ManageChannels",
+            "AddReactions",
+            "PrioritySpeaker",
+            "Stream",
+            "ViewChannel",
+            "SendMessages",
+            "SendTTSMessages",
+            "ManageMessages",
+            "EmbedLinks",
+            "AttachFiles",
+            "ReadMessageHistory",
+            "MentionEveryone",
+            "UseExternalEmojis",
+            "Connect",
+            "Speak",
+            "MuteMembers",
+            "DeafenMembers",
+            "MoveMembers",
+            "UseVAD",
+            "ManageRoles",
+            "ManageWebhooks",
+            "UseApplicationCommands",
+            "RequestToSpeak",
+            "ManageEvents",
+            "ManageThreads",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "UseExternalStickers",
+            "SendMessagesInThreads",
+            "UseEmbeddedActivities",
+            "UseSoundboard",
+            "CreateEvents",
+            "UseExternalSounds",
+            "SendVoiceMessages",
+            "SetVoiceChannelStatus",
+            "SendPolls",
+            "UseExternalApps",
+            "PinMessages",
+            "BypassSlowmode"
+          ]
+        },
+        {
+          "roleId": "1534981525001605371",
+          "roleName": "◈ ︱ Co-Founder",
+          "allow": [],
+          "deny": [
+            "ManageChannels",
+            "ManageMessages"
+          ]
+        },
+        {
+          "roleId": "1534981513160949991",
+          "roleName": "◈ ︱ Big Boss",
+          "allow": [],
+          "deny": [
+            "ManageChannels",
+            "ManageMessages"
+          ]
+        },
+        {
+          "roleId": "1534981516176654446",
+          "roleName": "◈ ︱ Boss",
+          "allow": [],
+          "deny": [
+            "ManageChannels",
+            "ManageMessages"
+          ]
+        },
+        {
+          "roleId": "1534981510032134285",
+          "roleName": "◇ ︱ Consultant",
+          "allow": [],
+          "deny": [
+            "ManageChannels",
+            "ManageMessages"
+          ]
+        },
+        {
+          "roleId": "1534981522053140500",
+          "roleName": "◈ ︱ Founder",
+          "allow": [],
+          "deny": [
+            "ManageChannels",
+            "ManageMessages"
+          ]
+        },
+        {
+          "roleId": "1534981503631622235",
+          "roleName": "✦ ︱ Head Manager",
+          "allow": [],
+          "deny": [
+            "ManageChannels",
+            "ManageMessages"
+          ]
+        },
+        {
+          "roleId": "1534981519041499196",
+          "roleName": "◈ ︱ CEO",
+          "allow": [],
+          "deny": [
+            "ManageChannels",
+            "ManageMessages"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981675665195088",
+      "name": "⎈〢 𝐇𝐈𝐆𝐇 🌀𝐌𝐀𝐍𝐀𝐆𝐄𝐌𝐄𝐍𝐓",
+      "type": 2,
+      "parentId": "1534981671743651900",
+      "position": 2,
+      "overwrites": [
+        {
+          "roleId": "1534981506747994132",
+          "roleName": "♛ ︱ Co-Owner",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": [
+            "Connect"
+          ]
+        },
+        {
+          "roleId": "1534981525001605371",
+          "roleName": "◈ ︱ Co-Founder",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981513160949991",
+          "roleName": "◈ ︱ Big Boss",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981516176654446",
+          "roleName": "◈ ︱ Boss",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981510032134285",
+          "roleName": "◇ ︱ Consultant",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981522053140500",
+          "roleName": "◈ ︱ Founder",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981519041499196",
+          "roleName": "◈ ︱ CEO",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        }
+      ]
+    },
+    {
+      "id": "1534981790123688120",
+      "name": "L G C Y🔗𝑷𝒓𝒊𝒗𝒂𝒕𝒆 3",
+      "type": 2,
+      "parentId": "1534981780007026808",
+      "position": 2,
+      "overwrites": []
+    },
+    {
+      "id": "1534981638516248667",
+      "name": "︙𝑴𝒆𝒎𝒃𝒆𝒓-𝑳𝒐𝒈・سجل-الأعضاء",
+      "type": 0,
+      "parentId": "1534981631755157727",
+      "position": 1,
+      "overwrites": [
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "ViewChannel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981851985477684",
+      "name": "︙𝑾𝒂𝒍𝒍𝒑𝒂𝒑𝒆𝒓𝒔・خلفيات-🖼️",
+      "type": 0,
+      "parentId": "1534981727921901588",
+      "position": 5,
+      "overwrites": [
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "AddReactions",
+            "ViewChannel",
+            "SendMessages",
+            "AttachFiles",
+            "ReadMessageHistory",
+            "MentionEveryone",
+            "UseExternalEmojis",
+            "UseExternalStickers"
+          ],
+          "deny": [
+            "PrioritySpeaker",
+            "Stream",
+            "SendTTSMessages",
+            "ManageMessages",
+            "EmbedLinks",
+            "Connect",
+            "Speak",
+            "MuteMembers",
+            "DeafenMembers",
+            "MoveMembers",
+            "UseVAD",
+            "UseApplicationCommands",
+            "ManageEvents",
+            "ManageThreads",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads",
+            "UseEmbeddedActivities",
+            "UseSoundboard",
+            "CreateEvents",
+            "UseExternalSounds",
+            "SendVoiceMessages",
+            "SetVoiceChannelStatus",
+            "SendPolls",
+            "UseExternalApps",
+            "PinMessages",
+            "BypassSlowmode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981731201978480",
+      "name": "︙𝑹𝒐𝒍𝒆-𝑹𝒆𝒒𝒖𝒆𝒔𝒕𝒔・طلب-رتب",
+      "type": 0,
+      "parentId": "1534981727921901588",
+      "position": 8,
+      "overwrites": [
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981843844202609",
+      "name": "︙حلق-للبيع〔💎〕",
+      "type": 0,
+      "parentId": "1534981727921901588",
+      "position": 10,
+      "overwrites": [
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "AddReactions",
+            "ViewChannel",
+            "SendMessages",
+            "AttachFiles",
+            "ReadMessageHistory",
+            "MentionEveryone",
+            "UseExternalEmojis",
+            "UseExternalStickers"
+          ],
+          "deny": [
+            "PrioritySpeaker",
+            "Stream",
+            "SendTTSMessages",
+            "ManageMessages",
+            "EmbedLinks",
+            "Connect",
+            "Speak",
+            "MuteMembers",
+            "DeafenMembers",
+            "MoveMembers",
+            "UseVAD",
+            "UseApplicationCommands",
+            "ManageEvents",
+            "ManageThreads",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads",
+            "UseEmbeddedActivities",
+            "UseSoundboard",
+            "CreateEvents",
+            "UseExternalSounds",
+            "SendVoiceMessages",
+            "SetVoiceChannelStatus",
+            "SendPolls",
+            "UseExternalApps",
+            "PinMessages",
+            "BypassSlowmode"
+          ]
+        },
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981628537995385",
+      "name": "𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓 🛠️",
+      "type": 2,
+      "parentId": "1534981671743651900",
+      "position": 1,
+      "overwrites": [
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "ViewChannel",
+            "Connect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981786713718804",
+      "name": "L G C Y🔗𝑷𝒓𝒊𝒗𝒂𝒕𝒆 2",
+      "type": 2,
+      "parentId": "1534981780007026808",
+      "position": 1,
+      "overwrites": []
+    },
+    {
+      "id": "1534981825489797263",
+      "name": "𝑨𝑹𝑲 🦖",
+      "type": 2,
+      "parentId": "1534981797102878740",
+      "position": 5,
+      "overwrites": [
+        {
+          "roleId": "1534981581809127578",
+          "roleName": "🎮 ︱ ARK",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "ViewChannel",
+            "Connect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981766241320971",
+      "name": "︙𝑳 𝑮 𝑪 𝒀 3",
+      "type": 2,
+      "parentId": "1534981748323123203",
+      "position": 2,
+      "overwrites": [
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "UseVAD"
+          ],
+          "deny": []
+        }
+      ]
+    },
+    {
+      "id": "1534981855965745172",
+      "name": "︙💫اختصارات",
+      "type": 0,
+      "parentId": "1534981727921901588",
+      "position": 11,
+      "overwrites": [
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "ViewChannel"
+          ]
+        },
+        {
+          "roleId": "1534981598351724634",
+          "roleName": "🎮 ︱ FiveM",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981706753245334",
+      "name": "︙〢𝑨𝒏𝒏𝒐𝒖𝒏𝒄𝒆𝒎𝒆𝒏𝒕𝒔・الإعلانات-📢",
+      "type": 0,
+      "parentId": "1534981696745902161",
+      "position": 1,
+      "overwrites": [
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": [
+            "SendMessages",
+            "SendTTSMessages"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981716500938954",
+      "name": "︙𝑨𝒅𝒎𝒊𝒏-𝑹𝒆𝒗𝒊𝒆𝒘-⛔",
+      "type": 0,
+      "parentId": "1534981671743651900",
+      "position": 2,
+      "overwrites": [
+        {
+          "roleId": "1534981506747994132",
+          "roleName": "♛ ︱ Co-Owner",
+          "allow": [
+            "ViewChannel",
+            "SendMessages",
+            "AttachFiles"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "ViewChannel",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        },
+        {
+          "roleId": "1534981525001605371",
+          "roleName": "◈ ︱ Co-Founder",
+          "allow": [
+            "ViewChannel",
+            "SendMessages",
+            "AttachFiles"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981513160949991",
+          "roleName": "◈ ︱ Big Boss",
+          "allow": [
+            "ViewChannel",
+            "SendMessages",
+            "AttachFiles"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "ViewChannel",
+            "SendMessages",
+            "SendTTSMessages"
+          ]
+        },
+        {
+          "roleId": "1534981516176654446",
+          "roleName": "◈ ︱ Boss",
+          "allow": [
+            "ViewChannel",
+            "SendMessages",
+            "AttachFiles"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981510032134285",
+          "roleName": "◇ ︱ Consultant",
+          "allow": [
+            "ViewChannel",
+            "SendMessages",
+            "AttachFiles"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981522053140500",
+          "roleName": "◈ ︱ Founder",
+          "allow": [
+            "ViewChannel",
+            "SendMessages",
+            "AttachFiles"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981519041499196",
+          "roleName": "◈ ︱ CEO",
+          "allow": [
+            "ViewChannel",
+            "SendMessages",
+            "AttachFiles"
+          ],
+          "deny": []
+        }
+      ]
+    },
+    {
+      "id": "1534981769688780881",
+      "name": "︙𝑳 𝑮 𝑪 𝒀 1",
+      "type": 2,
+      "parentId": "1534981748323123203",
+      "position": 0,
+      "overwrites": [
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "UseVAD"
+          ],
+          "deny": []
+        }
+      ]
+    },
+    {
+      "id": "1534981709983121651",
+      "name": "︙𝑺𝒕𝒓𝒆𝒂𝒌・ستريك-🔥",
+      "type": 0,
+      "parentId": "1534981727921901588",
+      "position": 6,
+      "overwrites": [
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "ViewChannel",
+            "SendMessages",
+            "EmbedLinks",
+            "AttachFiles",
+            "UseApplicationCommands"
+          ],
+          "deny": [
+            "SendTTSMessages"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981635311800421",
+      "name": "︙𝑴𝒆𝒔𝒔𝒂𝒈𝒆-𝑳𝒐𝒈・سجل-الرسائل",
+      "type": 0,
+      "parentId": "1534981631755157727",
+      "position": 0,
+      "overwrites": [
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "ViewChannel"
+          ]
+        },
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981727921901588",
+      "name": "━━━ 𝑳 𝑮 𝑪 𝒀 · 𝑪𝑶𝑴𝑴𝑼𝑵𝑰𝑻𝒀 ━━━",
+      "type": 4,
+      "parentId": null,
+      "position": 1,
+      "overwrites": [
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "UseApplicationCommands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981660444069969",
+      "name": "︙𝑹𝒐𝒍𝒆-𝑳𝒐𝒈・سجل-الرول",
+      "type": 0,
+      "parentId": "1534981631755157727",
+      "position": 3,
+      "overwrites": [
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "ViewChannel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981783345430678",
+      "name": "L G C Y🔗𝑷𝒓𝒊𝒗𝒂𝒕𝒆 1",
+      "type": 2,
+      "parentId": "1534981780007026808",
+      "position": 0,
+      "overwrites": []
+    },
+    {
+      "id": "1534981797102878740",
+      "name": "━━━ 𝑳 𝑮 𝑪 𝒀 · 𝑮𝑨𝑴𝑰𝑵𝑮 ━━━",
+      "type": 4,
+      "parentId": null,
+      "position": 3,
+      "overwrites": [
+        {
+          "roleId": "1534981551052296202",
+          "roleName": "✧ ︱ LGCY Member",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": [
+            "CreateInstantInvite",
+            "ManageChannels",
+            "AddReactions",
+            "PrioritySpeaker",
+            "Stream",
+            "SendMessages",
+            "SendTTSMessages",
+            "ManageMessages",
+            "EmbedLinks",
+            "AttachFiles",
+            "ReadMessageHistory",
+            "MentionEveryone",
+            "UseExternalEmojis",
+            "Connect",
+            "Speak",
+            "MuteMembers",
+            "DeafenMembers",
+            "MoveMembers",
+            "UseVAD",
+            "ManageRoles",
+            "ManageWebhooks",
+            "UseApplicationCommands",
+            "ManageEvents",
+            "ManageThreads",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "UseExternalStickers",
+            "SendMessagesInThreads",
+            "UseEmbeddedActivities",
+            "UseSoundboard",
+            "CreateEvents",
+            "UseExternalSounds",
+            "SendVoiceMessages",
+            "SetVoiceChannelStatus",
+            "SendPolls",
+            "UseExternalApps",
+            "PinMessages",
+            "BypassSlowmode"
+          ]
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": []
+        }
+      ]
+    },
+    {
+      "id": "1534981689082777650",
+      "name": "⎈〢 𝐇𝐈𝐆𝐇 🌀𝐌𝐀𝐍𝐀𝐆𝐄𝐌𝐄𝐍𝐓",
+      "type": 2,
+      "parentId": "1534981671743651900",
+      "position": 4,
+      "overwrites": [
+        {
+          "roleId": "1534981506747994132",
+          "roleName": "♛ ︱ Co-Owner",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "ViewChannel",
+            "Connect"
+          ]
+        },
+        {
+          "roleId": "1534981513160949991",
+          "roleName": "◈ ︱ Big Boss",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": [
+            "Connect"
+          ]
+        },
+        {
+          "roleId": "1534981516176654446",
+          "roleName": "◈ ︱ Boss",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": [
+            "Connect"
+          ]
+        },
+        {
+          "roleId": "1534981510032134285",
+          "roleName": "◇ ︱ Consultant",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981522053140500",
+          "roleName": "◈ ︱ Founder",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": [
+            "Connect"
+          ]
+        },
+        {
+          "roleId": "1534981519041499196",
+          "roleName": "◈ ︱ CEO",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": [
+            "Connect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981625358712852",
+      "name": "︙𝑪𝒎𝒅",
+      "type": 0,
+      "parentId": "1534981671743651900",
+      "position": 0,
+      "overwrites": [
+        {
+          "roleId": "1534981510032134285",
+          "roleName": "◇ ︱ Consultant",
+          "allow": [
+            "ViewChannel",
+            "ReadMessageHistory"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "CreateInstantInvite",
+            "ManageChannels",
+            "AddReactions",
+            "ViewChannel",
+            "SendMessages",
+            "SendTTSMessages",
+            "ManageMessages",
+            "EmbedLinks",
+            "AttachFiles",
+            "ReadMessageHistory",
+            "UseExternalEmojis",
+            "ManageRoles",
+            "ManageWebhooks",
+            "UseApplicationCommands",
+            "ManageThreads",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "UseExternalStickers",
+            "SendMessagesInThreads",
+            "UseEmbeddedActivities",
+            "SendVoiceMessages",
+            "SendPolls",
+            "UseExternalApps",
+            "PinMessages",
+            "BypassSlowmode"
+          ]
+        },
+        {
+          "roleId": "1534981506747994132",
+          "roleName": "♛ ︱ Co-Owner",
+          "allow": [
+            "ViewChannel",
+            "ReadMessageHistory"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1550673783097139261",
+      "name": "︙〢𝑹𝒐𝒍𝒆𝒔・الرتب-🎭",
+      "type": 0,
+      "parentId": "1534981696745902161",
+      "position": 3,
+      "overwrites": [
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": [
+            "SendMessages",
+            "SendTTSMessages"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981671743651900",
+      "name": "━━━ 𝑳 𝑮 𝑪 𝒀 · 𝑺𝑻𝑨𝑭𝑭 ━━━",
+      "type": 4,
+      "parentId": null,
+      "position": 6,
+      "overwrites": [
+        {
+          "roleId": "1534981506747994132",
+          "roleName": "♛ ︱ Co-Owner",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": [
+            "Connect"
+          ]
+        },
+        {
+          "roleId": "1534981525001605371",
+          "roleName": "◈ ︱ Co-Founder",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981513160949991",
+          "roleName": "◈ ︱ Big Boss",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981516176654446",
+          "roleName": "◈ ︱ Boss",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981510032134285",
+          "roleName": "◇ ︱ Consultant",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981522053140500",
+          "roleName": "◈ ︱ Founder",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981519041499196",
+          "roleName": "◈ ︱ CEO",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        }
+      ]
+    },
+    {
+      "id": "1534981685492322436",
+      "name": "⎈〢 𝐇𝐈𝐆𝐇 🌀𝐌𝐀𝐍𝐀𝐆𝐄𝐌𝐄𝐍𝐓",
+      "type": 2,
+      "parentId": "1534981671743651900",
+      "position": 3,
+      "overwrites": [
+        {
+          "roleId": "1534981506747994132",
+          "roleName": "♛ ︱ Co-Owner",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "ViewChannel",
+            "Connect"
+          ]
+        },
+        {
+          "roleId": "1534981525001605371",
+          "roleName": "◈ ︱ Co-Founder",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": [
+            "Connect"
+          ]
+        },
+        {
+          "roleId": "1534981513160949991",
+          "roleName": "◈ ︱ Big Boss",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981516176654446",
+          "roleName": "◈ ︱ Boss",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981503631622235",
+          "roleName": "✦ ︱ Head Manager",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981522053140500",
+          "roleName": "◈ ︱ Founder",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": [
+            "Connect"
+          ]
+        },
+        {
+          "roleId": "1534981510032134285",
+          "roleName": "◇ ︱ Consultant",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981519041499196",
+          "roleName": "◈ ︱ CEO",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": [
+            "Connect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981668237082735",
+      "name": "file-log-02",
+      "type": 0,
+      "parentId": "1534981631755157727",
+      "position": 6,
+      "overwrites": [
+        {
+          "roleId": "1534981506747994132",
+          "roleName": "♛ ︱ Co-Owner",
+          "allow": [],
+          "deny": [
+            "ManageMessages"
+          ]
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "ViewChannel"
+          ]
+        },
+        {
+          "roleId": "1534981525001605371",
+          "roleName": "◈ ︱ Co-Founder",
+          "allow": [],
+          "deny": [
+            "ManageMessages"
+          ]
+        },
+        {
+          "roleId": "1534981513160949991",
+          "roleName": "◈ ︱ Big Boss",
+          "allow": [],
+          "deny": [
+            "ManageMessages"
+          ]
+        },
+        {
+          "roleId": "1534981516176654446",
+          "roleName": "◈ ︱ Boss",
+          "allow": [],
+          "deny": [
+            "ManageMessages"
+          ]
+        },
+        {
+          "roleId": "1534981503631622235",
+          "roleName": "✦ ︱ Head Manager",
+          "allow": [],
+          "deny": [
+            "ManageMessages"
+          ]
+        },
+        {
+          "roleId": "1534981522053140500",
+          "roleName": "◈ ︱ Founder",
+          "allow": [],
+          "deny": [
+            "ManageMessages"
+          ]
+        },
+        {
+          "roleId": "1534981510032134285",
+          "roleName": "◇ ︱ Consultant",
+          "allow": [],
+          "deny": [
+            "ManageMessages"
+          ]
+        },
+        {
+          "roleId": "1534981519041499196",
+          "roleName": "◈ ︱ CEO",
+          "allow": [],
+          "deny": [
+            "ManageMessages"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981724357005423",
+      "name": "︙𝑫𝒊𝒔𝒄𝒐𝒓𝒅-𝑷𝒓𝒐𝒃𝒍𝒆𝒎𝒔・مشاكل-🛠️",
+      "type": 0,
+      "parentId": "1534981859698802900",
+      "position": 1,
+      "overwrites": [
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": [
+            "SendMessages",
+            "SendTTSMessages"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981737644560405",
+      "name": "︙𝑺𝒖𝒈𝒈𝒆𝒔𝒕𝒊𝒐𝒏𝒔・اقتراحات-✧",
+      "type": 15,
+      "parentId": "1534981727921901588",
+      "position": 1,
+      "overwrites": [
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "ViewChannel",
+            "SendMessages"
+          ],
+          "deny": [
+            "SendTTSMessages"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981748323123203",
+      "name": "━━━ 𝑳 𝑮 𝑪 𝒀 · 𝑽𝑶𝑰𝑪𝑬 ━━━",
+      "type": 4,
+      "parentId": null,
+      "position": 2,
+      "overwrites": [
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "UseVAD"
+          ],
+          "deny": []
+        }
+      ]
+    },
+    {
+      "id": "1534981863410761901",
+      "name": "𝑨𝑭𝑲 💤",
+      "type": 2,
+      "parentId": "1534981748323123203",
+      "position": 3,
+      "overwrites": [
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": [
+            "CreateInstantInvite",
+            "ManageChannels",
+            "AddReactions",
+            "PrioritySpeaker",
+            "Stream",
+            "SendMessages",
+            "SendTTSMessages",
+            "ManageMessages",
+            "EmbedLinks",
+            "AttachFiles",
+            "ReadMessageHistory",
+            "MentionEveryone",
+            "UseExternalEmojis",
+            "Speak",
+            "MuteMembers",
+            "DeafenMembers",
+            "MoveMembers",
+            "UseVAD",
+            "ManageRoles",
+            "ManageWebhooks",
+            "UseApplicationCommands",
+            "ManageEvents",
+            "UseExternalStickers",
+            "UseEmbeddedActivities",
+            "UseSoundboard",
+            "CreateEvents",
+            "UseExternalSounds",
+            "SendVoiceMessages",
+            "SetVoiceChannelStatus",
+            "SendPolls",
+            "UseExternalApps",
+            "BypassSlowmode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981800160661537",
+      "name": "𝑬𝒗𝒆𝒏𝒕𝒔 🎉",
+      "type": 2,
+      "parentId": "1534981797102878740",
+      "position": 0,
+      "overwrites": [
+        {
+          "roleId": "1534981553992765731",
+          "roleName": "🎉 ︱ Event Manager",
+          "allow": [
+            "Stream",
+            "ViewChannel",
+            "Connect",
+            "MuteMembers",
+            "DeafenMembers",
+            "MoveMembers"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "ViewChannel",
+            "UseVAD"
+          ],
+          "deny": [
+            "CreateInstantInvite",
+            "ManageChannels",
+            "Stream",
+            "Connect",
+            "MuteMembers",
+            "DeafenMembers",
+            "MoveMembers",
+            "ManageRoles",
+            "ManageWebhooks"
+          ]
+        },
+        {
+          "roleId": "1534981557025243318",
+          "roleName": "🔔 ︱ Events",
+          "allow": [
+            "ViewChannel",
+            "Connect",
+            "MuteMembers",
+            "MoveMembers"
+          ],
+          "deny": [
+            "DeafenMembers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981703393611907",
+      "name": "︙〢𝑾𝒆𝒍𝒄𝒐𝒎𝒆・الترحيب-✦",
+      "type": 0,
+      "parentId": "1534981696745902161",
+      "position": 0,
+      "overwrites": [
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": [
+            "SendMessages",
+            "SendTTSMessages"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981810994286782",
+      "name": "𝑭𝒊𝒗𝒆𝑴 🔫",
+      "type": 2,
+      "parentId": "1534981797102878740",
+      "position": 1,
+      "overwrites": [
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "ViewChannel",
+            "Connect"
+          ]
+        },
+        {
+          "roleId": "1534981598351724634",
+          "roleName": "🎮 ︱ FiveM",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        }
+      ]
+    },
+    {
+      "id": "1534981840664793239",
+      "name": "︙سالفه-للبيع〔🪪〕",
+      "type": 0,
+      "parentId": "1534981727921901588",
+      "position": 9,
+      "overwrites": [
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "AddReactions",
+            "ViewChannel",
+            "SendMessages",
+            "AttachFiles",
+            "ReadMessageHistory",
+            "MentionEveryone",
+            "UseExternalEmojis",
+            "UseExternalStickers"
+          ],
+          "deny": [
+            "PrioritySpeaker",
+            "Stream",
+            "SendTTSMessages",
+            "ManageMessages",
+            "EmbedLinks",
+            "Connect",
+            "Speak",
+            "MuteMembers",
+            "DeafenMembers",
+            "MoveMembers",
+            "UseVAD",
+            "UseApplicationCommands",
+            "ManageEvents",
+            "ManageThreads",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads",
+            "UseEmbeddedActivities",
+            "UseSoundboard",
+            "CreateEvents",
+            "UseExternalSounds",
+            "SendVoiceMessages",
+            "SetVoiceChannelStatus",
+            "SendPolls",
+            "UseExternalApps",
+            "PinMessages",
+            "BypassSlowmode"
+          ]
+        },
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981822184685599",
+      "name": "𝑴𝒊𝒏𝒆𝒄𝒓𝒂𝒇𝒕",
+      "type": 2,
+      "parentId": "1534981797102878740",
+      "position": 4,
+      "overwrites": [
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "ViewChannel",
+            "Connect"
+          ]
+        },
+        {
+          "roleId": "1534981594081792173",
+          "roleName": "🎮 ︱ Minecraft",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": []
+        }
+      ]
+    },
+    {
+      "id": "1534981859698802900",
+      "name": "━━━ 𝑳 𝑮 𝑪 𝒀 · 𝑺𝑼𝑷𝑷𝑶𝑹𝑻 ━━━",
+      "type": 4,
+      "parentId": null,
+      "position": 5,
+      "overwrites": []
+    },
+    {
+      "id": "1534981678848671926",
+      "name": "︙𝑫𝒆𝒄𝒊𝒔𝒊𝒐𝒏𝒔・قرارات-الإدارة",
+      "type": 0,
+      "parentId": "1534981671743651900",
+      "position": 1,
+      "overwrites": [
+        {
+          "roleId": "1534981506747994132",
+          "roleName": "♛ ︱ Co-Owner",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        },
+        {
+          "roleId": "1534981525001605371",
+          "roleName": "◈ ︱ Co-Founder",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981513160949991",
+          "roleName": "◈ ︱ Big Boss",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "CreateInstantInvite",
+            "ManageChannels",
+            "AddReactions",
+            "ViewChannel",
+            "SendMessages",
+            "SendTTSMessages",
+            "ManageMessages",
+            "EmbedLinks",
+            "AttachFiles",
+            "ReadMessageHistory",
+            "UseExternalEmojis",
+            "ManageRoles",
+            "ManageWebhooks",
+            "UseApplicationCommands",
+            "ManageThreads",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "UseExternalStickers",
+            "SendMessagesInThreads",
+            "UseEmbeddedActivities",
+            "SendVoiceMessages",
+            "SendPolls",
+            "UseExternalApps",
+            "PinMessages",
+            "BypassSlowmode"
+          ]
+        },
+        {
+          "roleId": "1534981516176654446",
+          "roleName": "◈ ︱ Boss",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981510032134285",
+          "roleName": "◇ ︱ Consultant",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981522053140500",
+          "roleName": "◈ ︱ Founder",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981519041499196",
+          "roleName": "◈ ︱ CEO",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": []
+        }
+      ]
+    },
+    {
+      "id": "1534981653221343343",
+      "name": "file-log-01",
+      "type": 0,
+      "parentId": "1534981631755157727",
+      "position": 5,
+      "overwrites": [
+        {
+          "roleId": "1534981527774036209",
+          "roleName": "◈ ︱ President",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "ViewChannel"
+          ]
+        },
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981741310116081",
+      "name": "︙𝑶𝒑𝒆𝒏-𝑻𝒊𝒄𝒌𝒆𝒕・تذكرة-📩",
+      "type": 0,
+      "parentId": "1534981859698802900",
+      "position": 0,
+      "overwrites": [
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "SendMessages"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981758431527022",
+      "name": "︙𝑳 𝑮 𝑪 𝒀 2",
+      "type": 2,
+      "parentId": "1534981748323123203",
+      "position": 1,
+      "overwrites": [
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "UseVAD"
+          ],
+          "deny": []
+        }
+      ]
+    },
+    {
+      "id": "1534981803683872888",
+      "name": "︙𝑶𝒇𝒇𝒊𝒄𝒊𝒂𝒍-𝑬𝒗𝒆𝒏𝒕𝒔-🎉",
+      "type": 0,
+      "parentId": "1534981797102878740",
+      "position": 0,
+      "overwrites": [
+        {
+          "roleId": "1534981553992765731",
+          "roleName": "🎉 ︱ Event Manager",
+          "allow": [
+            "ViewChannel",
+            "SendMessages"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534981557025243318",
+          "roleName": "🔔 ︱ Events",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": []
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [
+            "ViewChannel"
+          ],
+          "deny": [
+            "CreateInstantInvite",
+            "ManageChannels",
+            "AddReactions",
+            "SendMessages",
+            "EmbedLinks",
+            "AttachFiles",
+            "ManageRoles",
+            "ManageWebhooks",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        },
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981692945858640",
+      "name": "𝑺𝒕𝒂𝒇𝒇-𝑾𝒂𝒊𝒕𝒊𝒏𝒈・انتظار",
+      "type": 2,
+      "parentId": "1534981671743651900",
+      "position": 5,
+      "overwrites": [
+        {
+          "roleId": "1534981551052296202",
+          "roleName": "✧ ︱ LGCY Member",
+          "allow": [
+            "ViewChannel",
+            "Connect"
+          ],
+          "deny": [
+            "AddReactions",
+            "PrioritySpeaker",
+            "Stream",
+            "SendMessages",
+            "SendTTSMessages",
+            "ManageMessages",
+            "EmbedLinks",
+            "AttachFiles",
+            "MentionEveryone",
+            "UseExternalEmojis",
+            "Speak",
+            "MuteMembers",
+            "DeafenMembers",
+            "MoveMembers",
+            "UseVAD",
+            "UseApplicationCommands",
+            "ManageEvents",
+            "UseExternalStickers",
+            "UseEmbeddedActivities",
+            "UseSoundboard",
+            "CreateEvents",
+            "UseExternalSounds",
+            "SendVoiceMessages",
+            "SetVoiceChannelStatus",
+            "SendPolls",
+            "UseExternalApps",
+            "BypassSlowmode"
+          ]
+        },
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "ViewChannel",
+            "Connect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981657159929937",
+      "name": "︙𝑽𝒐𝒊𝒄𝒆-𝑳𝒐𝒈・سجل-الصوت",
+      "type": 0,
+      "parentId": "1534981631755157727",
+      "position": 2,
+      "overwrites": [
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "ViewChannel"
+          ]
+        },
+        {
+          "roleId": "1534981601551974662",
+          "roleName": "🔇 ︱ Muted",
+          "allow": [],
+          "deny": [
+            "AddReactions",
+            "SendMessages",
+            "Speak",
+            "CreatePublicThreads",
+            "CreatePrivateThreads",
+            "SendMessagesInThreads"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1534981780007026808",
+      "name": "━━━ 𝑳 𝑮 𝑪 𝒀 · 𝑷𝑹𝑰𝑽𝑨𝑻𝑬 ━━━",
+      "type": 4,
+      "parentId": null,
+      "position": 4,
+      "overwrites": []
+    },
+    {
+      "id": "1534981621172801556",
+      "name": "♛ 𝑶𝒘𝒏𝒆𝒓",
+      "type": 2,
+      "parentId": "1534981671743651900",
+      "position": 0,
+      "overwrites": [
+        {
+          "roleId": "1534980236305891408",
+          "roleName": "@everyone",
+          "allow": [],
+          "deny": [
+            "ViewChannel",
+            "Connect"
+          ]
+        }
+      ]
+    }
+  ]
+}

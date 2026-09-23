@@ -1,0 +1,27 @@
+node_modules/
+dist/
+*.log
+logs/
+
+# secrets
+.env
+.env.local
+
+# database (local state)
+data/
+*.sqlite
+*.sqlite-journal
+*.db
+
+# generated previews
+preview/*.png
+
+# generated ticket transcripts
+transcripts/
+
+# local backups
+backups/
+
+# os
+Thumbs.db
+.DS_Store

@@ -1,0 +1,21 @@
+# Reference copy of the systemd unit that setup-vm.sh installs.
+# Installed to: /etc/systemd/system/lgcy-core.service
+# (setup-vm.sh fills in the real user + path automatically.)
+[Unit]
+Description=LGCY Core Discord bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/LGCY-Core
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/env node node_modules/tsx/dist/cli.mjs src/index.ts
+Restart=always
+RestartSec=5
+StandardOutput=append:/home/ubuntu/LGCY-Core/data/bot.log
+StandardError=append:/home/ubuntu/LGCY-Core/data/bot.log
+
+[Install]
+WantedBy=multi-user.target

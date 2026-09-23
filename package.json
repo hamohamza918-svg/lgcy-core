@@ -1,0 +1,54 @@
+{
+  "name": "lgcy-core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "LGCY Core — the permanent, modular Discord bot for the LGCY community.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "serve": "node dist/index.js",
+    "deploy-commands": "tsx scripts/deploy-commands.ts",
+    "dump:commands": "tsx scripts/dump-commands.ts",
+    "perms": "tsx scripts/perms.ts",
+    "doctor": "tsx scripts/doctor.ts",
+    "map:server": "tsx scripts/map-server.ts",
+    "audit:roles": "tsx scripts/audit-roles.ts",
+    "capture:baseline": "tsx scripts/capture-baseline.ts",
+    "bot:post-check": "tsx scripts/bot-post-check.ts",
+    "bot:grant-channels": "tsx scripts/grant-bot-channels.ts",
+    "audit:channels": "tsx scripts/audit-channels.ts",
+    "phase2": "tsx scripts/phase2-analysis.ts",
+    "roles:apply": "tsx scripts/roles-apply.ts",
+    "roles:verify": "tsx scripts/roles-verify.ts",
+    "control": "tsx control-center/server/index.ts",
+    "test:control": "tsx --test control-center/tests/*.test.ts",
+    "preview:card": "tsx scripts/preview-card.ts",
+    "preview:transcript": "tsx scripts/preview-transcript.ts",
+    "smoke": "tsx scripts/smoke.ts",
+    "test": "tsx --test scripts/*.test.ts",
+    "test:tickets": "tsx --test scripts/tickets.test.ts",
+    "db:reset": "tsx scripts/db-reset.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.68",
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pino": "^9.6.0",
+    "pino-pretty": "^13.0.0",
+    "tsx": "^4.19.2",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.5",
+    "puppeteer-core": "^24.0.0",
+    "typescript": "^5.7.3"
+  }
+}
