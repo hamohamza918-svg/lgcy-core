@@ -6,9 +6,20 @@ import {
   type Image,
 } from '@napi-rs/canvas';
 import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { scopedLogger } from '../../utils/logger.js';
 
 const log = scopedLogger('welcome-card');
+
+/**
+ * Bundled default background (the LGCY artwork committed under assets/). Resolved
+ * from the working directory so it works both on the Windows dev box and on a
+ * host like Render — where a machine-specific configured path would not exist.
+ */
+function bundledBackground(): string | undefined {
+  const p = resolve(process.cwd(), 'assets', 'welcome-bg.png');
+  return existsSync(p) ? p : undefined;
+}
 
 const WIDTH = 1000;
 const HEIGHT = 400;
@@ -97,7 +108,10 @@ export async function generateWelcomeCard(
   const ctx = canvas.getContext('2d');
 
   // ── Background ────────────────────────────────────────────────
-  const bg = await tryLoad(opts.backgroundSource);
+  // Prefer the configured background; fall back to the bundled LGCY artwork
+  // (so the art shows even when the configured path is machine-specific/missing,
+  // e.g. on Render), then to the generated gradient if neither loads.
+  const bg = (await tryLoad(opts.backgroundSource)) ?? (await tryLoad(bundledBackground()));
   if (bg) {
     // cover-fit the custom background
     const scale = Math.max(WIDTH / bg.width, HEIGHT / bg.height);
