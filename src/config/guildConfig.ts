@@ -117,6 +117,8 @@ export const guildConfigSchema = z.object({
   rolesChannelId: z.string().optional(),
   logChannels: logChannelsSchema,
   voiceLogging: voiceLoggingSchema,
+  /** General logging options (member/message/role/mod/server categories). */
+  logging: z.object({ includeIds: z.boolean().default(true) }).default({}),
 
   // Tickets
   ticketPanelChannelId: z.string().optional(),
