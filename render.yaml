@@ -1,0 +1,32 @@
+# Render Blueprint — deploy LGCY Core as a free 24/7 web service.
+# In Render: New + → Blueprint → pick the lgcy-core repo → Apply.
+# It auto-creates the service with everything below; you only add DISCORD_TOKEN.
+services:
+  - type: web
+    name: lgcy-core
+    runtime: node
+    plan: free
+    region: frankfurt
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      # The ONE secret — set it in the Render dashboard (sync:false = not in git).
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: DISCORD_CLIENT_ID
+        value: "1551593131877732513"
+      - key: GUILD_ID
+        value: "1534980236305891408"
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "24"
+      # Channel seeds — restore welcome config after Render's disk resets.
+      - key: WELCOME_CHANNEL_ID
+        value: "1534981703393611907"
+      - key: RULES_CHANNEL_ID
+        value: "1534981713300685024"
+      - key: ROLES_CHANNEL_ID
+        value: "1550673783097139261"
