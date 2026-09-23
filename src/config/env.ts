@@ -39,6 +39,8 @@ const envSchema = z.object({
   // One-time bootstrap flag: grant the bot post-access overwrites on all
   // non-private channels (run once with Administrator, then remove).
   GRANT_CHANNELS: z.string().optional(),
+  // One-time flag: post a sample embed to each configured log channel, then remove.
+  LOG_TEST: z.string().optional(),
 });
 
 export type Env = z.infer<typeof envSchema>;

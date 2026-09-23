@@ -17,6 +17,7 @@ import { LgcyClient } from './services/client.js';
 import { loadModules } from './services/moduleLoader.js';
 import { startKeepAlive } from './services/keepalive.js';
 import { maybeGrantChannels } from './services/grantChannels.js';
+import { maybePostLogSamples } from './services/logSamples.js';
 import { MODULES } from './modules/index.js';
 import { readyEvent } from './events/ready.js';
 import { interactionCreateEvent } from './events/interactionCreate.js';
@@ -75,7 +76,10 @@ async function main(): Promise<void> {
     try {
       const gid = credentials.getGuildId();
       const guild = gid ? await client.guilds.fetch(gid) : null;
-      if (guild) await maybeGrantChannels(guild);
+      if (guild) {
+        await maybeGrantChannels(guild);
+        await maybePostLogSamples(guild);
+      }
     } catch (err) {
       logger.error({ err }, 'channel grant bootstrap failed');
     }
