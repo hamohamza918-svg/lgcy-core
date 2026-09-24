@@ -41,6 +41,14 @@ const envSchema = z.object({
   GRANT_CHANNELS: z.string().optional(),
   // One-time flag: post a sample embed to each configured log channel, then remove.
   LOG_TEST: z.string().optional(),
+  // Ticket config seeds (restore on restart; disk-less hosts). Staff = CSV of role IDs.
+  TICKET_PANEL_CHANNEL_ID: z.string().optional(),
+  TICKET_PARENT_CATEGORY_ID: z.string().optional(),
+  TICKET_LOG_CHANNEL_ID: z.string().optional(),
+  TICKET_ARCHIVE_CATEGORY_ID: z.string().optional(),
+  TICKET_STAFF_ROLE_IDS: z.string().optional(),
+  // One-time flag: (re)post the ticket panel to the panel channel, then remove.
+  TICKET_PANEL_POST: z.string().optional(),
 });
 
 export type Env = z.infer<typeof envSchema>;

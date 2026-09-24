@@ -18,6 +18,7 @@ import { loadModules } from './services/moduleLoader.js';
 import { startKeepAlive } from './services/keepalive.js';
 import { maybeGrantChannels } from './services/grantChannels.js';
 import { maybePostLogSamples } from './services/logSamples.js';
+import { maybePostTicketPanel } from './services/ticketPanel.js';
 import { MODULES } from './modules/index.js';
 import { readyEvent } from './events/ready.js';
 import { interactionCreateEvent } from './events/interactionCreate.js';
@@ -36,7 +37,9 @@ function seedConfigFromEnv(): void {
   const anyWelcome = env.WELCOME_CHANNEL_ID || env.RULES_CHANNEL_ID || env.ROLES_CHANNEL_ID;
   const anyLog = env.LOG_MEMBER_CHANNEL_ID || env.LOG_MESSAGE_CHANNEL_ID || env.LOG_ROLE_CHANNEL_ID
     || env.LOG_VOICE_CHANNEL_ID || env.LOG_SERVER_CHANNEL_ID || env.LOG_MODERATION_CHANNEL_ID;
-  if (!anyWelcome && !anyLog) return;
+  const anyTicket = env.TICKET_PANEL_CHANNEL_ID || env.TICKET_PARENT_CATEGORY_ID || env.TICKET_LOG_CHANNEL_ID
+    || env.TICKET_ARCHIVE_CATEGORY_ID || env.TICKET_STAFF_ROLE_IDS;
+  if (!anyWelcome && !anyLog && !anyTicket) return;
   const cfg = getGuildConfig(gid);
   const seeded: string[] = [];
   updateGuildConfig(gid, (draft) => {
@@ -49,6 +52,14 @@ function seedConfigFromEnv(): void {
     if (env.LOG_VOICE_CHANNEL_ID && !cfg.logChannels.voice) { draft.logChannels.voice = env.LOG_VOICE_CHANNEL_ID; seeded.push('log:voice'); }
     if (env.LOG_SERVER_CHANNEL_ID && !cfg.logChannels.server) { draft.logChannels.server = env.LOG_SERVER_CHANNEL_ID; seeded.push('log:server'); }
     if (env.LOG_MODERATION_CHANNEL_ID && !cfg.logChannels.moderation) { draft.logChannels.moderation = env.LOG_MODERATION_CHANNEL_ID; seeded.push('log:moderation'); }
+    if (env.TICKET_PANEL_CHANNEL_ID && !cfg.ticketPanelChannelId) { draft.ticketPanelChannelId = env.TICKET_PANEL_CHANNEL_ID; seeded.push('ticket:panel'); }
+    if (env.TICKET_PARENT_CATEGORY_ID && !cfg.ticketParentCategoryId) { draft.ticketParentCategoryId = env.TICKET_PARENT_CATEGORY_ID; seeded.push('ticket:parent'); }
+    if (env.TICKET_LOG_CHANNEL_ID && !cfg.ticketLogChannelId) { draft.ticketLogChannelId = env.TICKET_LOG_CHANNEL_ID; seeded.push('ticket:log'); }
+    if (env.TICKET_ARCHIVE_CATEGORY_ID && !cfg.ticketArchiveCategoryId) { draft.ticketArchiveCategoryId = env.TICKET_ARCHIVE_CATEGORY_ID; seeded.push('ticket:archive'); }
+    if (env.TICKET_STAFF_ROLE_IDS && cfg.ticketStaffRoleIds.length === 0) {
+      draft.ticketStaffRoleIds = env.TICKET_STAFF_ROLE_IDS.split(',').map((s) => s.trim()).filter(Boolean);
+      seeded.push('ticket:staff');
+    }
   });
   if (seeded.length) logger.info({ seeded }, 'seeded channel config from env');
 }
@@ -79,6 +90,7 @@ async function main(): Promise<void> {
       if (guild) {
         await maybeGrantChannels(guild);
         await maybePostLogSamples(guild);
+        await maybePostTicketPanel(guild);
       }
     } catch (err) {
       logger.error({ err }, 'channel grant bootstrap failed');
