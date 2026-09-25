@@ -39,7 +39,8 @@ function seedConfigFromEnv(): void {
     || env.LOG_VOICE_CHANNEL_ID || env.LOG_SERVER_CHANNEL_ID || env.LOG_MODERATION_CHANNEL_ID;
   const anyTicket = env.TICKET_PANEL_CHANNEL_ID || env.TICKET_PARENT_CATEGORY_ID || env.TICKET_LOG_CHANNEL_ID
     || env.TICKET_ARCHIVE_CATEGORY_ID || env.TICKET_STAFF_ROLE_IDS;
-  if (!anyWelcome && !anyLog && !anyTicket && !env.LOG_MESSAGE_SENDS) return;
+  const anyFile = env.FILE_LOG_POSTED_CHANNEL_ID || env.FILE_LOG_DELETED_CHANNEL_ID;
+  if (!anyWelcome && !anyLog && !anyTicket && !anyFile && !env.LOG_MESSAGE_SENDS) return;
   const cfg = getGuildConfig(gid);
   const seeded: string[] = [];
   updateGuildConfig(gid, (draft) => {
@@ -61,6 +62,8 @@ function seedConfigFromEnv(): void {
       seeded.push('ticket:staff');
     }
     if (env.LOG_MESSAGE_SENDS === '1' && !cfg.logging.logMessageSends) { draft.logging.logMessageSends = true; seeded.push('log:messageSends'); }
+    if (env.FILE_LOG_POSTED_CHANNEL_ID && !cfg.fileLog.postedChannelId) { draft.fileLog.postedChannelId = env.FILE_LOG_POSTED_CHANNEL_ID; seeded.push('file:posted'); }
+    if (env.FILE_LOG_DELETED_CHANNEL_ID && !cfg.fileLog.deletedChannelId) { draft.fileLog.deletedChannelId = env.FILE_LOG_DELETED_CHANNEL_ID; seeded.push('file:deleted'); }
   });
   if (seeded.length) logger.info({ seeded }, 'seeded channel config from env');
 }

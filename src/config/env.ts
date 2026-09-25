@@ -37,6 +37,8 @@ const envSchema = z.object({
   LOG_SERVER_CHANNEL_ID: z.string().optional(),
   LOG_MODERATION_CHANNEL_ID: z.string().optional(),
   LOG_MESSAGE_SENDS: z.string().optional(), // "1" enables logging every sent message
+  FILE_LOG_POSTED_CHANNEL_ID: z.string().optional(), // re-hosted upload archive
+  FILE_LOG_DELETED_CHANNEL_ID: z.string().optional(), // deleted-attachment log
   // One-time bootstrap flag: grant the bot post-access overwrites on all
   // non-private channels (run once with Administrator, then remove).
   GRANT_CHANNELS: z.string().optional(),

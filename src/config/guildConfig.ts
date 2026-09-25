@@ -125,6 +125,14 @@ export const guildConfigSchema = z.object({
       logMessageSends: z.boolean().default(false),
     })
     .default({}),
+  /** Media/attachment archive. postedChannel re-hosts uploads (preserved even
+   * after deletion); deletedChannel records removed attachments. */
+  fileLog: z
+    .object({
+      postedChannelId: z.string().optional(),
+      deletedChannelId: z.string().optional(),
+    })
+    .default({}),
 
   // Tickets
   ticketPanelChannelId: z.string().optional(),

@@ -2,6 +2,7 @@ import type { EventHandler } from '../../types/index.js';
 import { memberJoinLog, memberLeaveLog, memberUpdateLog, banLog, unbanLog } from './memberLog.js';
 import { messageCreateLog, messageDeleteLog, messageEditLog, messageBulkDeleteLog } from './messageLog.js';
 import { channelCreateLog, channelDeleteLog, channelUpdateLog, roleCreateLog, roleDeleteLog } from './serverLog.js';
+import { fileCreateLog, fileDeleteLog } from './fileLog.js';
 import { voiceStateLog } from './voiceLog.js';
 
 /**
@@ -28,6 +29,9 @@ export const loggingEvents: EventHandler[] = [
   channelUpdateLog,
   roleCreateLog,
   roleDeleteLog,
+  // files / attachments
+  fileCreateLog,
+  fileDeleteLog,
   // voice
   voiceStateLog,
 ] as EventHandler[];
