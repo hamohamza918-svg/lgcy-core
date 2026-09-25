@@ -52,6 +52,8 @@ const envSchema = z.object({
   TICKET_STAFF_ROLE_IDS: z.string().optional(),
   // One-time flag: (re)post the ticket panel to the panel channel, then remove.
   TICKET_PANEL_POST: z.string().optional(),
+  // One-time flag: create a dedicated #ticket-logs channel, then remove.
+  TICKET_LOG_CREATE: z.string().optional(),
 });
 
 export type Env = z.infer<typeof envSchema>;

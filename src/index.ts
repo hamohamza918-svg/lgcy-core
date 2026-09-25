@@ -19,6 +19,7 @@ import { startKeepAlive } from './services/keepalive.js';
 import { maybeGrantChannels } from './services/grantChannels.js';
 import { maybePostLogSamples } from './services/logSamples.js';
 import { maybePostTicketPanel } from './services/ticketPanel.js';
+import { maybeCreateTicketLog } from './services/ticketLogSetup.js';
 import { MODULES } from './modules/index.js';
 import { readyEvent } from './events/ready.js';
 import { interactionCreateEvent } from './events/interactionCreate.js';
@@ -94,6 +95,7 @@ async function main(): Promise<void> {
       if (guild) {
         await maybeGrantChannels(guild);
         await maybePostLogSamples(guild);
+        await maybeCreateTicketLog(guild);
         await maybePostTicketPanel(guild);
       }
     } catch (err) {

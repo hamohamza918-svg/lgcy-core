@@ -51,9 +51,11 @@ export async function logTicketEvent(
       guild.channels.cache.get(cfg.ticketLogChannelId) ??
       (await guild.channels.fetch(cfg.ticketLogChannelId).catch(() => null));
     if (!channel || channel.type !== ChannelType.GuildText) return;
+    // Surface the ticket number in the title so entries are easy to scan/search.
+    const num = fields.find((f) => /ticket/i.test(f.name))?.value.match(/#\d+/)?.[0] ?? '';
     const embed = new EmbedBuilder()
       .setColor(COLOR[event])
-      .setAuthor({ name: `Ticket ${event.replace('_', ' ')}` })
+      .setAuthor({ name: `Ticket ${num} ${event.replace('_', ' ')}`.replace(/\s+/g, ' ').trim() })
       .addFields(fields)
       .setTimestamp();
     await channel.send({ embeds: [embed], files: attachment ? [attachment] : [] });

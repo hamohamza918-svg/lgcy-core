@@ -30,6 +30,7 @@ import {
 } from './service.js';
 import { generateTranscript } from './transcript.js';
 import { logTicketEvent } from './log.js';
+import { formatDuration, sqliteToDate } from '../../utils/time.js';
 import {
   CID,
   buildTicketModal,
@@ -290,13 +291,19 @@ export async function handleTicketsComponent(
         embeds: [embeds.info('🔒 Ticket closed', `Closed by <@${interaction.user.id}>${reason ? `\n**Reason:** ${reason}` : ''}`)],
       }).catch(() => undefined);
 
+      const catLabel = cfg.ticketCategories.find((c) => c.key === updated.category)?.label ?? updated.category;
+      const durationMs = Date.now() - sqliteToDate(updated.createdAt).getTime();
       await logTicketEvent(
         interaction.guild,
         'closed',
         [
-          { name: 'Ticket', value: `#${updated.ticketNumber}`, inline: true },
+          { name: '🎫 Ticket', value: `#${updated.ticketNumber}${updated.subject ? ` — ${updated.subject}` : ''}` },
+          { name: 'Category', value: catLabel, inline: true },
+          { name: 'Opened by', value: `<@${updated.openerId}>`, inline: true },
+          { name: 'Claimed by', value: updated.claimedBy ? `<@${updated.claimedBy}>` : '*unclaimed*', inline: true },
           { name: 'Closed by', value: `<@${interaction.user.id}>`, inline: true },
-          { name: 'Reason', value: reason ?? '*none*' },
+          { name: 'Duration', value: formatDuration(durationMs), inline: true },
+          { name: 'Reason', value: reason ?? '*none*', inline: true },
         ],
         attachment,
       );
