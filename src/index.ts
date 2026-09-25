@@ -20,6 +20,7 @@ import { maybeGrantChannels } from './services/grantChannels.js';
 import { maybePostLogSamples } from './services/logSamples.js';
 import { maybePostTicketPanel } from './services/ticketPanel.js';
 import { maybeCreateTicketLog } from './services/ticketLogSetup.js';
+import { maybeBackfillAutoRoles } from './services/backfillRoles.js';
 import { MODULES } from './modules/index.js';
 import { readyEvent } from './events/ready.js';
 import { interactionCreateEvent } from './events/interactionCreate.js';
@@ -98,6 +99,7 @@ async function main(): Promise<void> {
         await maybePostLogSamples(guild);
         await maybeCreateTicketLog(guild);
         await maybePostTicketPanel(guild);
+        await maybeBackfillAutoRoles(guild);
       }
     } catch (err) {
       logger.error({ err }, 'channel grant bootstrap failed');
