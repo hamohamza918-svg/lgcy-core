@@ -118,7 +118,13 @@ export const guildConfigSchema = z.object({
   logChannels: logChannelsSchema,
   voiceLogging: voiceLoggingSchema,
   /** General logging options (member/message/role/mod/server categories). */
-  logging: z.object({ includeIds: z.boolean().default(true) }).default({}),
+  logging: z
+    .object({
+      includeIds: z.boolean().default(true),
+      /** Log EVERY message sent (high volume) to the message log channel. */
+      logMessageSends: z.boolean().default(false),
+    })
+    .default({}),
 
   // Tickets
   ticketPanelChannelId: z.string().optional(),

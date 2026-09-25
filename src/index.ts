@@ -39,7 +39,7 @@ function seedConfigFromEnv(): void {
     || env.LOG_VOICE_CHANNEL_ID || env.LOG_SERVER_CHANNEL_ID || env.LOG_MODERATION_CHANNEL_ID;
   const anyTicket = env.TICKET_PANEL_CHANNEL_ID || env.TICKET_PARENT_CATEGORY_ID || env.TICKET_LOG_CHANNEL_ID
     || env.TICKET_ARCHIVE_CATEGORY_ID || env.TICKET_STAFF_ROLE_IDS;
-  if (!anyWelcome && !anyLog && !anyTicket) return;
+  if (!anyWelcome && !anyLog && !anyTicket && !env.LOG_MESSAGE_SENDS) return;
   const cfg = getGuildConfig(gid);
   const seeded: string[] = [];
   updateGuildConfig(gid, (draft) => {
@@ -60,6 +60,7 @@ function seedConfigFromEnv(): void {
       draft.ticketStaffRoleIds = env.TICKET_STAFF_ROLE_IDS.split(',').map((s) => s.trim()).filter(Boolean);
       seeded.push('ticket:staff');
     }
+    if (env.LOG_MESSAGE_SENDS === '1' && !cfg.logging.logMessageSends) { draft.logging.logMessageSends = true; seeded.push('log:messageSends'); }
   });
   if (seeded.length) logger.info({ seeded }, 'seeded channel config from env');
 }

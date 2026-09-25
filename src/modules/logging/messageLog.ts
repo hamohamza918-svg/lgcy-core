@@ -4,10 +4,30 @@ import {
 } from 'discord.js';
 import type { EventHandler } from '../../types/index.js';
 import { sendLog } from '../../services/logService.js';
+import { getGuildConfig } from '../../config/guildConfig.js';
 import { LOG_COLORS, trim, withIds, fetchActor, actorSuffix } from './shared.js';
 
 const MODULE = 'logging';
 const chanName = (m: { channel: unknown }) => (m.channel && typeof m.channel === 'object' && 'name' in m.channel ? String((m.channel as { name?: string }).name) : 'channel');
+
+/** High-volume: logs every human message sent. Off unless logging.logMessageSends. */
+export const messageCreateLog: EventHandler<Events.MessageCreate> = {
+  name: Events.MessageCreate, module: MODULE,
+  async execute(_c, message) {
+    if (!message.guild || message.author?.bot || !message.author) return;
+    if (!getGuildConfig(message.guild.id).logging.logMessageSends) return;
+    if (!message.content && message.attachments.size === 0) return; // nothing to log
+    const e = new EmbedBuilder()
+      .setColor(LOG_COLORS.neutral)
+      .setAuthor({ name: message.author.tag, iconURL: message.author.displayAvatarURL() })
+      .setDescription(message.content ? trim(message.content, 2000) : '*no text*')
+      .addFields({ name: 'Channel', value: `<#${message.channelId}>`, inline: true });
+    if (message.attachments.size) e.addFields({ name: 'Attachments', value: String(message.attachments.size), inline: true });
+    e.setURL(message.url).setTimestamp();
+    withIds(e, message.guild.id, [['Author', message.author.id], ['Msg', message.id]]);
+    await sendLog(message.guild, 'message', e);
+  },
+};
 
 export const messageDeleteLog: EventHandler<Events.MessageDelete> = {
   name: Events.MessageDelete, module: MODULE,

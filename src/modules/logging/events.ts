@@ -1,6 +1,6 @@
 import type { EventHandler } from '../../types/index.js';
 import { memberJoinLog, memberLeaveLog, memberUpdateLog, banLog, unbanLog } from './memberLog.js';
-import { messageDeleteLog, messageEditLog, messageBulkDeleteLog } from './messageLog.js';
+import { messageCreateLog, messageDeleteLog, messageEditLog, messageBulkDeleteLog } from './messageLog.js';
 import { channelCreateLog, channelDeleteLog, channelUpdateLog, roleCreateLog, roleDeleteLog } from './serverLog.js';
 import { voiceStateLog } from './voiceLog.js';
 
@@ -18,6 +18,7 @@ export const loggingEvents: EventHandler[] = [
   banLog,
   unbanLog,
   // messages
+  messageCreateLog,
   messageDeleteLog,
   messageEditLog,
   messageBulkDeleteLog,
