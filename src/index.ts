@@ -35,7 +35,7 @@ function seedConfigFromEnv(): void {
   const gid = credentials.getGuildId();
   if (!gid) return;
   const env = loadEnv();
-  const anyWelcome = env.WELCOME_CHANNEL_ID || env.RULES_CHANNEL_ID || env.ROLES_CHANNEL_ID;
+  const anyWelcome = env.WELCOME_CHANNEL_ID || env.RULES_CHANNEL_ID || env.ROLES_CHANNEL_ID || env.AUTO_ROLE_IDS;
   const anyLog = env.LOG_MEMBER_CHANNEL_ID || env.LOG_MESSAGE_CHANNEL_ID || env.LOG_ROLE_CHANNEL_ID
     || env.LOG_VOICE_CHANNEL_ID || env.LOG_SERVER_CHANNEL_ID || env.LOG_MODERATION_CHANNEL_ID;
   const anyTicket = env.TICKET_PANEL_CHANNEL_ID || env.TICKET_PARENT_CATEGORY_ID || env.TICKET_LOG_CHANNEL_ID
@@ -48,6 +48,7 @@ function seedConfigFromEnv(): void {
     if (env.WELCOME_CHANNEL_ID && !cfg.welcomeChannelId) { draft.welcomeChannelId = env.WELCOME_CHANNEL_ID; seeded.push('welcome'); }
     if (env.RULES_CHANNEL_ID && !cfg.rulesChannelId) { draft.rulesChannelId = env.RULES_CHANNEL_ID; seeded.push('rules'); }
     if (env.ROLES_CHANNEL_ID && !cfg.rolesChannelId) { draft.rolesChannelId = env.ROLES_CHANNEL_ID; seeded.push('roles'); }
+    if (env.AUTO_ROLE_IDS && cfg.autoRoleIds.length === 0) { draft.autoRoleIds = env.AUTO_ROLE_IDS.split(',').map((s) => s.trim()).filter(Boolean); seeded.push('autoRoles'); }
     if (env.LOG_MEMBER_CHANNEL_ID && !cfg.logChannels.member) { draft.logChannels.member = env.LOG_MEMBER_CHANNEL_ID; seeded.push('log:member'); }
     if (env.LOG_MESSAGE_CHANNEL_ID && !cfg.logChannels.message) { draft.logChannels.message = env.LOG_MESSAGE_CHANNEL_ID; seeded.push('log:message'); }
     if (env.LOG_ROLE_CHANNEL_ID && !cfg.logChannels.role) { draft.logChannels.role = env.LOG_ROLE_CHANNEL_ID; seeded.push('log:role'); }

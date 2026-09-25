@@ -41,6 +41,32 @@ function channelMention(id: string | undefined, fallback: string): string {
   return id ? `<#${id}>` : fallback;
 }
 
+/**
+ * Auto-role: assign configured roles (e.g. LGCY Member) to every human member on
+ * join. Skips bots. Best-effort — only assigns roles the bot can manage (below
+ * its highest role); a role above the bot is skipped with a warning.
+ */
+export const autoRoleEvent: EventHandler<Events.GuildMemberAdd> = {
+  name: Events.GuildMemberAdd,
+  module: 'welcome',
+  async execute(_client, member: GuildMember) {
+    if (member.user.bot) return;
+    const cfg = getGuildConfig(member.guild.id);
+    if (!cfg.autoRoleIds.length) return;
+    const me = member.guild.members.me;
+    const botTop = me?.roles.highest.position ?? 0;
+    const assignable = cfg.autoRoleIds.filter((id) => {
+      const role = member.guild.roles.cache.get(id);
+      return role && !role.managed && role.position < botTop;
+    });
+    if (!assignable.length) {
+      log.warn({ guildId: member.guild.id, autoRoleIds: cfg.autoRoleIds }, 'no assignable auto-roles (missing or above bot)');
+      return;
+    }
+    await member.roles.add(assignable, 'Auto-role on join').catch((err) => log.error({ err }, 'failed to assign auto-role'));
+  },
+};
+
 export const guildMemberAddEvent: EventHandler<Events.GuildMemberAdd> = {
   name: Events.GuildMemberAdd,
   module: 'welcome',

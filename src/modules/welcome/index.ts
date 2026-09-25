@@ -1,5 +1,5 @@
 import type { Module } from '../../types/index.js';
-import { guildMemberAddEvent, guildMemberRemoveEvent } from './events.js';
+import { guildMemberAddEvent, guildMemberRemoveEvent, autoRoleEvent } from './events.js';
 import { welcomeCommand } from './commands.js';
 
 /**
@@ -15,7 +15,7 @@ export const welcomeModule: Module = {
   defaultEnabled: true,
   dashboard: { icon: '👋', section: 'welcome', configurable: true },
   commands: [welcomeCommand],
-  events: [guildMemberAddEvent, guildMemberRemoveEvent],
+  events: [guildMemberAddEvent, guildMemberRemoveEvent, autoRoleEvent],
 };
 
 export { generateWelcomeCard } from './card.js';

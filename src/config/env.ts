@@ -29,6 +29,7 @@ const envSchema = z.object({
   WELCOME_CHANNEL_ID: z.string().optional(),
   RULES_CHANNEL_ID: z.string().optional(),
   ROLES_CHANNEL_ID: z.string().optional(),
+  AUTO_ROLE_IDS: z.string().optional(), // CSV of role IDs auto-assigned on join
   // Log destinations per category (same purpose as above — restore on restart).
   LOG_MEMBER_CHANNEL_ID: z.string().optional(),
   LOG_MESSAGE_CHANNEL_ID: z.string().optional(),

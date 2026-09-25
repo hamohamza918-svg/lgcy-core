@@ -150,6 +150,8 @@ export const guildConfigSchema = z.object({
   selfRoleGroups: z.array(selfRoleGroupSchema).default([]),
   /** Staff/security roles. NEVER offered as self-roles; used for access checks. */
   staffRoleIds: z.array(z.string()).default([]),
+  /** Roles auto-assigned to every human member on join (e.g. LGCY Member). */
+  autoRoleIds: z.array(z.string()).default([]),
 
   // Branding overrides (fall back to BRAND constants when unset)
   colors: z
